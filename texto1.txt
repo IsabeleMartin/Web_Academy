@@ -1,2 +1,1 @@
 testando o git e suas funções
-editando o conteúdo do arquivo de texto 1
