@@ -6,11 +6,32 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Formulário de contato</h1>
-        <p>Por favor, preencha o formulário abaixo e clique no botão Enviar Mensagem. Abradecemos por seu contato</p>
+   
+   <h1>Login</h1>
+   <p>Por favor, informe seu login e senha: </p>
+   <form id="login" method="POST" action="/user/login">
+    <section>
+    Login: <input type="text" name="nome" id="nome"/><br/>
+    Senha: <input type="password" name="senha" id="senha">
+    <input type="reset" value="Resetar Dados" />
+    <input type="submit" name="submit" value="Entrar" />
+    </section>
 
-    </header>
-    
+    <fieldset>
+    <legend>Selecione seu curso</legend>
+    <input type="radio" name="curso" id="cc" checked>
+    <label for="cc"> Ciência da Computação </label> <br>
+
+    <input type="radio" name="curso" id="es">
+    <label for="es">Engenharia de Software </label><br>
+
+    <input type="radio" name="curso" id="ec">
+    <label for="ec">Engenharia da Computação </label> <br>
+    </fieldset>
+
+    <textarea name="mensagem" rows="4" cols="30">
+        Este é o valor padrão!
+    </textarea>
+   </form>
 </body>
 </html>
