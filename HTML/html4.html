@@ -7,31 +7,110 @@
 </head>
 <body>
    
-   <h1>Login</h1>
-   <p>Por favor, informe seu login e senha: </p>
+   <h1>Formulário de Contato</h1>
+   <p>Por favor, preencha abaixo e clique no botão Enviar Mensagem. Agradecemos por seu contato. </p>
    <form id="login" method="POST" action="/user/login">
-    <section>
-    Login: <input type="text" name="nome" id="nome"/><br/>
-    Senha: <input type="password" name="senha" id="senha">
-    <input type="reset" value="Resetar Dados" />
-    <input type="submit" name="submit" value="Entrar" />
-    </section>
+    
+    <fieldset id="dados basic">
+        <legend>Dados Básicos</legend>
+        Nome: <input type="text" name="nome" id="nome"/><br/>
+        Email: <input type="email" name="email" id="email" required placeholder="seunome@dominio.com.br"/><br/>
+        Website: <input type="url" name="website" id="website" value="https://" required>
+    </fieldset>
+    
+    <fieldset id="curso">
+        <legend>Seu curso no Instituto de Computação</legend>
 
-    <fieldset>
-    <legend>Selecione seu curso</legend>
-    <input type="radio" name="curso" id="cc" checked>
-    <label for="cc"> Ciência da Computação </label> <br>
+        <input type="radio" name="curso" id="cc">
+        <label for="cc">Ciência da Computação</label><br>
 
-    <input type="radio" name="curso" id="es">
-    <label for="es">Engenharia de Software </label><br>
+        <input type="radio" name="curso" id="si">
+        <label for="si">Sistema de Informação</label><br>
 
-    <input type="radio" name="curso" id="ec">
-    <label for="ec">Engenharia da Computação </label> <br>
+        <input type="radio" name="curso" id="ec">
+        <label for="ec">Engenharia da Computação</label>
+
+
     </fieldset>
 
-    <textarea name="mensagem" rows="4" cols="30">
-        Este é o valor padrão!
-    </textarea>
+    <fieldset id="linguas">
+        <legend>Assinale as linguagens já usadas por você</legend>
+
+        <label for="java">Java</label>
+        <input type="checkbox" name="languages" id="java" value="java">
+
+        <label for="c">C</label>
+        <input type="checkbox" name="languages" id="c" value="c">
+
+        <label for="cpp">C++</label>
+        <input type="checkbox" name="languages" id="cpp" value="cpp">
+
+        <label for="perl">Perl</label>
+        <input type="checkbox" name="languages" id="perl" value="perl">
+
+        <label for="python">Python</label>
+        <input type="checkbox" name="languages" id="python" value="python">
+
+        <label for="javascript">JavaScript</label>
+        <input type="checkbox" name="languages" id="javascript" value="javascript">
+
+    </fieldset>
+
+    <fieldset id="dados Complementares">
+        <legend>Dados Complementares</legend>
+        <label for="cor">Cor Favorita</label>
+        <input type="color" name="cor" id="cor">
+        <br>
+
+        <label for="nascimento">Data de nascimento</label>
+        <input type="date" name="nascimento" id="nascimento">
+        <br>
+
+        <label for="ano">Ano de entrada em seu curso do IComp</label>
+        <input type="number" name="ano" min="1980" max="2025" step="1" value="2000" id="ano"> <br>
+
+        <label for="nota">Nota para este site</label>
+        <input type="range" name="nota" id="nota" min="0" max="10" value="5">        
+
+    </fieldset>
+
+    <fieldset id="atuação">
+        <legend>Área de atuação</legend>
+
+        <select name="area" id="area">
+            <option value="1">Banco de Dados</option>
+            <option value="2">Educação a Distância</option>
+            <option value="3">Engenharia de Software</option>
+            <option value="4">Otimização</option>
+            <option value="5">Programação para a Web</option>
+            <option value="6">Recuperação de Informação</option>
+            <option value="7">Redes de Computadores</option>
+           
+        </select>
+
+    </fieldset>
+
+
+    <fieldset id="curriculo">
+        <legend>Submeta seu curriculo vitae</legend>
+
+        <input type="file" name="curriculo" id="curriculo">
+
+    </fieldset>
+    
+
+    <fieldset idd="mensagem">
+        <legend>Digite sua Mensagem</legend>
+
+        <textarea name="mensagem" rows="4" cols="30">Este é o valor padrão!
+        </textarea>
+
+    </fieldset>
+
+    <input type="reset" value="Resetar Dados">
+    <input type="submit" value="Enviar Mensagem">
+    
+
    </form>
 </body>
 </html>
