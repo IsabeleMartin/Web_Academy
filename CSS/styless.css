@@ -1,0 +1,70 @@
+
+/*essa é o aruivo css que estiliza o html, nesse arquivo estão apenas as estilizações */
+
+
+
+/*seletor do css: especifica qual elementos serão estilizados 
+    
+    color      :blue
+    propriedade:valor declaração
+
+    Temos alguns seletores como: 
+
+         Elementos: body, h1, p, div, span
+         ID: intro, referencias
+            para se referir a um ID no css usamos o símbolo #, ex: #intro
+         Classes: 
+            ex: <p class="paragrafo"> </p> essa é uma classe do HTML
+            para estilizar ele usamos o símbolo . (ponto) ex: .paragrafo.
+
+
+Propriedade font-family: 
+    Define a fonte do texto de um dado elemento.
+       
+        - Caso esse elemento não seja interpretado pelo browser, ele irá usar a fonte seguinte, e assim por diante.
+        - A última opção é uma fonte genérica, que o browser irá usar a fonte padrão dele.
+        - Famílias genéricas de fontes permitem definir um tipo de fonte, ao invés de uma fonte específica
+    
+
+        -Além da propriedade font-family, existe uma série de
+        outras propridades de fontes: font-style, font-variant, font-weight e font-size.
+
+        Obs: quando nenhum estilo é informado, o browser usa o estilo padrão dele.
+            - Os estilos tem ordem de prioridade:
+                - 1º: estilo inline (dentro do elemento)
+                - 2º: estilo embarcado (dentro da tag <style>)
+                - 3º: estilo externo (arquivo CSS)
+                - 4º: estilo padrão do browser
+
+                    - Essa ordem pode ser alterada com o uso de !important, que força a aplicação do estilo.
+                    - Ex: color: red !important;
+*/
+
+body{
+    margin: 83px;
+    padding: 10px;
+    border-top: 8px solid #ff0;
+    border-bottom: 8px solid #ff0;
+}
+
+h3{ 
+    font-size: 30px;
+    color:grey;
+}
+
+h4{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#paragrafo1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: green;
+    border-bottom: 2px solid #ff0000;
+}
+
+.paragrafo2{
+    border-bottom: 2px solid #186174;
+}
+
+
