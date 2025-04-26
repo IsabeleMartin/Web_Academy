@@ -1,0 +1,15 @@
+Existe tipos de condições na seleção por atributo
+
+    - [attr] : seleciona todo elemento que tenha esse atributo, independente do valor.
+    
+    - [attr="val"] : seleciona elementos que tenham valor exatamente igual ao valor especificado
+    
+    - [atributo~="valor"] : seleciona elementos cujo atributo contém uma lista de palavras separadas por espaço e uma delas é exatamente igual ao valor especificado.
+    
+    - [attr|="valor"] : Seleciona elementos cujo valor do atributo começa com o valor especificado, podendo estar seguido de um hífen (-). Muito usado para seleção por idioma, como lang="en-US".
+    
+    - [attr^="valor"] : seleciona elementos cujo valor do atributo começa com o valor especificado.
+    
+    - [attr$="valor"] : seleciona elementos cujo valor do atributo termina com valor especificado.
+    
+    - [attr="valor"]* : seleciona elementos cujo valor do atributo contém o valor especificado em qualquer parte.
