@@ -1,0 +1,58 @@
+.container {
+    border: 8px solid #6e6e6e;
+    background-color: #bce7e5;
+    padding: 15px;
+    margin-top: 110px;
+    margin-right: 80%;
+    border-radius: 20px;
+
+    /* This will hide the element */
+}
+
+p{
+    text-align: justify;
+    text-indent: 25px;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+    font-family: 'Arial', sans-serif;
+}
+
+body{
+    background-image: url("DIA MUNDIAL DE COMBATE A ASMA(1).png");
+    background-position: top left;
+    background-origin: border-box;
+    background-clip: content-box;
+    background-size: 100%;
+    background-repeat: no-repeat;;
+   
+
+}
+
+/*.img1{
+    width: 38%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.img3{
+    width: 60%;
+    height: auto;
+    border-radius: 15px;
+    
+}
+ .img4{
+    width: 43%;
+    height: auto;
+    border-radius: 15px;
+ }
+
+ .img2{
+    width: 55%;
+    height: auto;
+    border-radius: 15px;
+    }*/
