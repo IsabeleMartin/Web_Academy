@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terceira Parte de CSS</title>
+    <link rel="stylesheet" href="part3.css">
+</head>
+<body>
+    <nav>
+        <li>
+            <a href="#topico1">Tamanho dos Elementos</a><br>
+            <a href="#topico2">Lidando com Transbordamento</a><br>
+            <a href="#topico3">Tipos de Caixas de Elementos</a><br>
+            <a href="#topico4">Alinhamento de Textos</a><br>
+            <a href="#topico5">Posicionamento de Conteúdo</a><br>
+            <a href="#topico6">Posicionamento Absoluto</a><br>
+            <a href="#topico7">Posicionamento Relativo</a>
+        </li>
+    </nav>
+
+    <div>
+        <h1 id="topico1">Tamanho dos Elementos</h1>
+
+        <p>
+            As propriedades usadas para definir o tamanho de um elemento são: 
+        </p>
+        <ul>
+            <li>width</li>
+            <li>height</li>
+            <li>max-width</li>
+            <li>max-height</li>
+            <li>min-width</li>
+            <li>min-height</li>
+        </ul>
+        <p>
+            O valor padrão para todas elas é o auto, onde o browser calcula o tamanho do elemento de acordo com o conteúdo que ele possui. Para definir um tamanho fixo, você pode usar pixels (px), porcentagem (%) ou outras unidades de medida.  
+                    
+        </p>
+        <h3>
+            min- e max-
+        </h3>
+        <p>
+            Utilizado para limitar o quanto o browser pode aumentar ou diminuir o tamanho do elemento.
+        </p>
+       
+
+        <h1 id="topico2">
+            Lidando com Transbordamento
+        </h1>
+
+        <p>
+            Quando um elemento é diminuido, o seu conteudo pode transbordar para fora, por padrão o browser permite que ele transborde, mas existem meios de tratamento para isso utilizando a propriedade overflow.
+
+        </p>
+
+        <ul>
+            <li>overflow-x</li>
+            <li>overflow-y</li>
+            <li>overflow</li>
+        </ul>
+
+        <p>
+            Possíveis valores para a propriedade overflow:
+        </p>
+        <table border="1" style="border-collapse: collapse; width: 100%;">
+            <thead>
+            <tr>
+                <th style="border: 1px solid black; padding: 8px;">Valor</th>
+                <th style="border: 1px solid black; padding: 8px;">Descrição</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="border: 1px solid black; padding: 8px;">visible</td>
+                <td style="border: 1px solid black; padding: 8px;">O conteúdo transbordado é visível (valor padrão).</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 8px;">hidden</td>
+                <td style="border: 1px solid black; padding: 8px;">O conteúdo transbordado é cortado e não é visível.</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 8px;">scroll</td>
+                <td style="border: 1px solid black; padding: 8px;">Adiciona barras de rolagem havendo ou não transbordamento.</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 8px;">auto</td>
+                <td style="border: 1px solid black; padding: 8px;">Adiciona barras de rolagem apenas se necessário.</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Exemplo de utilização de overflow</h3>
+
+        <p>scroll</p>
+
+        <p class="exemplo_transbordar" style="overflow: scroll;">
+            Esse é o texto muito grande que o a acabará ocasinando um transbordamento texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+        </p>
+
+        <p>hidden</p>
+
+        <p class="exemplo_transbordar" style="overflow: hidden;">
+            Esse é o texto muito grande que o a acabará ocasinando um overflow, texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+        </p>
+
+        <p>visible</p>
+
+        <p class="exemplo_transbordar" style="overflow: visible;">
+            Esse é o texto muito grande que o a acabará ocasinando um overflow, texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+        </p>
+
+        <p>auto</p>
+        
+        <p class="exemplo_transbordar" style="overflow: auto;">
+            Esse é o texto muito grande que o a acabará ocasinando um overflow, texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+        </p>
+
+        <h1 id="topico3">Tipos de Caixas dos Elementos</h1>
+
+        <p>É possível mudar o tipo de caixa de um elemento por meio da propriedade display.</p>
+
+        <table border="1" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black; padding: 8px;">Valor</th>
+                    <th style="border: 1px solid black; padding: 8px;">Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">block</th>
+                    <td style="border: 1px solid black; padding: 8px;">Cria uma caixa ao redor do elemento e age como se fosse um paragrafo</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">inline</th>
+                    <td style="border: 1px solid black; padding: 8px;">Cria uma caixa ao redor do elemento, mas segue o fluxo do conteúdo.</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">inline-block</th>
+                    <td style="border: 1px solid black; padding: 8px;">Tem a mesma propriedade de inline, mas pode manipular o width e height</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">none</th>
+                    <td style="border: 1px solid black; padding: 8px;">O elemento não aparece na página</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            Este é um exemplo dos elementos que falamos acima texto texto texto texto texto texto texto texto texto texto texto
+            texto texto texto <strong>exemplo de block:</strong> <span id="span1"> texto </span>texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+            texto texto texto texto texto <strong>exemplo de inline:</strong> <span id="span2"> texto </span> texto texto texto texto texto <strong>exemplo de inline-block: </strong><span id="span3"> texto </span>texto texto texto texto texto texto texto
+            texto texto texto texto texto texto texto texto texto <strong>exemplo de none (texto escondido:"não estou vendo esse texto"):</strong> <span id="span4"> não estou vendo esse texto </span> texto texto texto texto texto texto texto texto texto texto texto
+        </p>
+
+
+
+        <h1 id="topico4">Alinhamento de Textos</h1>
+
+        <p>
+            A propriedade text-align é usada para configurar o
+            alinhamento do conteúdo textual. Seus possíveis valores são: left, right, center e justify.
+        </p>
+        <p id = "exemplo_alinhamento">
+            Além da propriedade text-align, existe uma série de
+            outras propridades de textos: text-indent, text-transform,
+            text-decoration, word-spacing e letter-spacing.
+        </p>
+
+        <button class="bottom_txt_alinhamento">Justify</button>
+        <button class="bottom_txt_alinhamento">Center</button>
+        <button class="bottom_txt_alinhamento">Left</button>
+        <button class="bottom_txt_alinhamento">Right</button>
+
+        <h1 id="topico5">Posicionamento de Conteúdo</h1>
+
+        <p>
+            A propriedade position define o método com que um elemento é posicionado na página. Possíveis valores:
+        </p>
+
+        <table border="1" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Valor</th>
+                    <th>Descrição</th>
+                    <th>Obeservação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 8px;">static </td>
+                    <td style="padding: 8px;">O elemento é definido conforme o fluxo do documento.</td>
+                    <td style="padding: 8px;">Valor padrão. Top, Bottom, Left e Right não tem efeito</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;">relative</td>
+                    <td style="padding: 8px;">O elemento ocupa seu espaço original, mas pode mover com top, left, etc</td>
+                    <td style="padding: 8px;">Serve de referência para elementos absolute filhos.</td>
+
+                </tr>
+                <tr>
+                    <td style="padding: 8px;">absolute</td>
+                    <td style="padding: 8px;">O elemento é retirado do fluxo do documento e é posicionado em relação ao ancestral mais próximo.</td>
+                    <td style="padding: 8px;">O ancestral deve ser diferente de static</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;">fixed</td>
+                    <td style="padding: 8px;">O elemento fica fixo na tela do navegador, não se move com scroll.</td>
+                    <td style="padding: 8px;">ideal para Cabeçalhos fixos, botão de voltar ao topo.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <img id="gato" src="https://preview.redd.it/meu-gato-%C3%A9-praticamente-o-gato-do-meme-v0-n9dleoj8dgfc1.jpg?width=640&crop=smart&auto=webp&s=52de2578fe227e639db822d551bba33c6d28a2f1" alt="Gato tutor">
+
+        <p> Vamos analizar as propriedades listadas acima, utilize os botões para escolher um tipo de alinhamento para o gato tutor.</p>
+
+        <Button class="bottom_fig_alinhamento">Static</Button>
+        <Button class="bottom_fig_alinhamento">Relative</Button>
+        <Button class="bottom_fig_alinhamento">Absolute</Button>
+        <Button class="bottom_fig_alinhamento">Fixed</Button>        
+
+        <h1 id="topico6">Posicionamento Absoluto</h1>
+
+        <p>
+            O posicinamento absoluto permite ao programador maior controle sobre o local que o elemento ficará na página. O padrão é que o elemento siga o fluxo do documento, mas quando é especificado a posição absoluta, isso é ignorado. Os elementos são posicinados de acordo com a distância do topo, esquerda, direita ou do fundo da página.
+        </p>
+
+        <img id="caixa_areia" src="https://png.pngtree.com/png-clipart/20230820/original/pngtree-round-sandbox-icon-cartoon-vector-picture-image_8096746.png" alt="">
+
+        <p>
+            Vamos colocar o gato tutor para brincar na caixa de areia, aperte o botão fixed e role a página até ele entrar na caixa.
+        </p>
+        <p>
+            Opa, o gato tutor está posicionado atrás da caixa de areia. Isso ocorre pois a disposição das imagens segue a ordem dos últimos que foram insridas na página. Para resolver isso, é utilizado a propriedade <strong>z-index</strong> que permite criar elementos sobrepostos.
+        </p>
+
+        <p>
+            Vejamos o exemplo abaixo:
+            das duas imagens, a primeira é a caixa de areia e a segunda é o gato tutor. O gato auxiliar está com o z-index 2 e a caixa de areia com o z-index 1, ou seja, o gato tutor está atrás da caixa de areia.
+        </p>
+       
+        <img id="gato_aux" src="data:image/jpeg;base64,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" alt="">
+
+        <img id="cx2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzHdXCmrPC-PuOzsKAyo47ZP5kxQO9OZVQGw&s" alt="">
+
+        <h1 id="topico7">Posicionamento Relativo</h1>
+        <p>A proriedade <strong>position: relative</strong> posiciona um elemento em
+            relação a sua posição original
+        </p>
+
+        <p>Veja os exemplos a seguir:</p>
+
+        <p class="relative_position">O texto no final está <span class="super">acima</span></p>
+        <p class="relative_position">O texto no final está <span class="sub">abaixo</span></p>
+        <p class="relative_position">O texto no final está <span class="shiftleft">a esquerda</span></p>
+        <p class="relative_position">O texto no final está <span class="shiftright">a direita</span></p>
+
+    </div>
+</body>
+</html>
+
+<script>
+    const buttons = document.querySelectorAll(".bottom_txt_alinhamento");
+    const cssLogo = document.getElementById("exemplo_alinhamento");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = function(e) {
+        cssLogo.style.textAlign = e.target.innerHTML;
+        };
+    }
+
+    const buttons2 = document.querySelectorAll(".bottom_fig_alinhamento");
+    const gato = document.querySelector("#gato");
+    for(var i = 0; i < buttons2.length; i++) {
+        buttons2[i].onclick = function(e) {
+        gato.style.position = e.target.innerHTML;
+        };
+    }
+
+</script>
