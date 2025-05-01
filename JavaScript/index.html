@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Instituto de Computação</title>
+  </head>
+  <body>
+    <nav>
+        <ul>
+            <li><a href="#topico1">Inserindo JS em sua página</a></li>
+            <li><a href="#topico2">Sobre</a></li>
+            <li><a href="#topico3">Contato</a></li>
+        </ul>
+    </nav>
+    <h1 id="topico1">Inserindo JS na sua página</h1>
+    <p>Você pode inserir JS em sua página de duas formas:</p>
+    <ol>
+        <li>Interno: dentro de uma tag &lt;script&gt;</li>
+        <li>Externo: em um arquivo separado</li>
+    </ol>
+
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+    alert('scrip embarcado');
+    </script>
+
+    <h id="topico2">Onde é colocado o script</h1>
+
+        <ul>
+            <li>No cabeçalho do documento</li>
+            <ul>
+                <li>É lido antes do documento ser rederizado, e o código é executado imediatamente.</li>
+            </ul>
+            <li>No body do documento HTML</li>
+            <ul>
+                <li>É lido e executado na ordem em que aparece no documento.</li>
+            </ul>
+            <li>imediatamente antes do body</li>
+            <ul>
+                <li>Nesse caso, o código é executado depois que o documento foi lido e renderizado.</li>
+            </ul>
+        </ul>
+    <p>É possível inserir vários scripts em diferentes regiões de uma mesma página.</p>
+  </body>
+</html>
