@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+
+    <div id="Topico1">
+
+        <h1>Layout Flexbox</h1>
+
+        <p>
+            O flexbox é um método display que permique que organizamos itens de uma página dentro de um container.
+        </p>
+        <p>
+            Algumas propriedades CSS do flexbox estão relacionadas com o container, enquanto outras com os itens
+        </p>
+        
+        <h2>Propriedade do Flex Container</h2>
+
+        <ul>
+            <li><strong>display: </strong> define um flex container, habilita o contexto flex para todos os filhos (flex itens internos)</li>
+        </ul>
+
+        <div class="codigo">
+
+            <code>.container {display: flex | inline-flex;} </code>
+
+        </div>
+
+        <img src="images/img_pag/img1.png" alt="Layout Flex">
+
+        <ul>
+            <li><strong>flex-direction: </strong> estabelece o main-axis, definindo a direção dos itens dentro de um flex container.</li>
+        </ul>
+
+        <div class="codigo">
+
+            <code>.container { flex-direction: row | row-reverse | column | column-reverse; }</code>
+
+        </div>
+
+        <img src="images/img_pag/img2.png" alt="main-axis">
+
+        <ul>
+            <li><strong>row: </strong> dispoe os elementos em uma linha da esquerda para direita.</li>
+            <li><strong>row-reverse: </strong>dispoe os elementos em uma lista da direita para esquerda.</li>
+            <li><strong>column: </strong> dispoe os elementos em uma coluna de cima para baixo.</li>
+            <li><strong>column-reverse: </strong> dispoe os elementos em uma coluna de baixo para cima.</li>
+        </ul>
+
+        <div class="demonstracao">
+            <p>Vamos analizar o comportamento das imagens abaixo quando utilizamos cada um desses elementos. </p>
+            <div class="aplicacao">
+                <img src="images/img_demonstracao/exp1.png" alt="primeiro_elem" style="width: 200px;">
+                <img src="images/img_demonstracao/exp2.png" alt="segundo_elem" style="width: 200px;">
+                <img src="images/img_demonstracao/exp3.png" alt="terceiro_elem" style="width: 200px;">
+            </div>
+       
+            <button class="primeiro_ex">column</button>
+            <button class="primeiro_ex">row</button>
+            <button class="primeiro_ex">column-reverse</button>
+            <button class="primeiro_ex">row-reverse</button>
+       
+        </div>
+        
+
+        
+
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
