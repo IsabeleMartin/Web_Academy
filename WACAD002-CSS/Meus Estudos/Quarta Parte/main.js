@@ -8,3 +8,43 @@ for(let btn of btns){
         flex_ex.style.flexDirection = e.target.innerText;
     }
 }
+
+
+btns = document.querySelectorAll(".demonstracao .segundo_ex");
+let wrap_ex = document.getElementsByClassName("aplicacao2")[0];
+
+for (let btn of btns){
+
+    btn.onclick = function(e){
+        wrap_ex.style.flexWrap = e.target.innerText;
+      
+    }
+}
+
+btns = document.querySelectorAll(".demonstracao .terceiro_ex");
+let justify_ex = document.getElementsByClassName("aplicacao3")[0];
+
+for (let btn of btns){
+
+    btn.onclick = function(e){
+        justify_ex.style.justifyContent = e.target.innerText;
+      
+    }
+}
+
+btns = document.querySelectorAll(".demonstracao .quarto_ex");
+let align_ex = document.getElementsByClassName("aplicacao4")[0];
+
+for (let btn of btns){
+
+    btn.onclick = function(e){
+        align_ex.style.alignItems = e.target.innerText;
+      
+    }
+}
+
+function setAlign(value) {
+    const demo = document.getElementById('alignment-demo');
+    demo.style.justifyItems = value;
+    demo.style.alignItems = value;
+  }

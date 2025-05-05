@@ -1,0 +1,56 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 2fr 2fr 2fr;
+    gap: 8px;
+    background-color: rgb(255, 255, 255);
+    margin: 30px;
+}
+
+#ctn1{
+    
+    grid-template-areas: 
+    "red_bx red_bx blue_bx blue_bx"
+    "green_bx purple_bx purple_bx purple_bx"
+    "salmon_bx salmon_bx salmon_bx salmon_bx"
+    ;
+    
+}
+
+#ctn2{
+    grid-template-areas: 
+    "red_bx red_bx red_bx red_bx "
+    "green_bx green_bx purple_bx purple_bx"
+    "green_bx green_bx blue_bx salmon_bx"
+
+    ;
+}
+
+
+.container .red_bx{
+    grid-area: red_bx;
+    background-color: red;
+    border-radius: 5px;
+}
+
+.container .blue_bx{
+    grid-area: blue_bx;
+    background-color: rgb(42, 42, 143);
+    border-radius: 5px;
+    height: 100px;
+}
+.container .green_bx{
+    grid-area:green_bx;
+    background-color: green ;
+    border-radius: 5px;
+}
+.container .purple_bx{
+    grid-area: purple_bx;
+    background-color: purple;
+    border-radius: 5px;
+}
+.container .salmon_bx{
+    grid-area: salmon_bx;
+    background-color: salmon;
+    border-radius: 5px;
+}

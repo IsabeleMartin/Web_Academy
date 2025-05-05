@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,67 +8,169 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
+
+
+
 <body>
 
 
-    <div id="Topico1">
+    <div class="topicos" id="Topico1">
 
-        <h1>Layout Flexbox</h1>
+<!--1--><h1>Container Flexbox</h1>
 
         <p>
-            O flexbox é um método display que permique que organizamos itens de uma página dentro de um container.
+            O flexbox é um método display que permique que organizamos itens de uma página dentro de um container. Algumas propriedades CSS do flexbox estão relacionadas com o container, enquanto outras com os itens
         </p>
-        <p>
-            Algumas propriedades CSS do flexbox estão relacionadas com o container, enquanto outras com os itens
-        </p>
+        <div class="sub_topic">
+
+
+
+            <h2>Propriedade do Flex Container</h2>
+
+<!--1.1-->  <ul> <li><strong>display: </strong> define um flex container, habilita o contexto flex para todos os filhos (flex itens internos)</li></ul>
+    
+                <div class="codigo">
+                <pre><code>.container { display: flex | inline-flex ;} </code></pre>
+                </div>
         
-        <h2>Propriedade do Flex Container</h2>
+                <img class="img_pag" src="images/img_pag/img1.png" alt="Layout Flex">
+        
+<!--1.2-->  <ul><li><strong>flex-direction: </strong> estabelece o main-axis, definindo a direção dos itens dentro de um flex container.</li></ul>
+    
+                <div class="codigo">
+                    <pre><code>.container { flex-direction: row | row-reverse | column | column-reverse; }</code></pre>
+                </div>
+        
+                <img class="img_pag" src="images/img_pag/img2.png" alt="main-axis">
+        
+                <ol>
+                    <li><strong>row: </strong> dispoe os elementos em uma linha da esquerda para direita.</li>
+                    <li><strong>row-reverse: </strong>dispoe os elementos em uma lista da direita para esquerda.</li>
+                    <li><strong>column: </strong> dispoe os elementos em uma coluna de cima para baixo.</li>
+                    <li><strong>column-reverse: </strong> dispoe os elementos em uma coluna de baixo para cima.</li>
+                </ol>
+        
+                <div class="demonstracao">
+                    <p>Vamos analizar o comportamento das imagens abaixo quando utilizamos cada um desses elementos. </p>
+                    <div class="aplicacao">
+                        <img src="images/img_demonstracao/exp1.png" alt="primeiro_elem" style="width: 100px; height: 100px;">
+                        <img src="images/img_demonstracao/exp2.png" alt="segundo_elem" style="width: 100px; height: 100px;">
+                        <img src="images/img_demonstracao/exp3.png" alt="terceiro_elem" style="width: 100px; height: 100px;">
+                    </div>
+            
+                    <button class="primeiro_ex">Column</button>
+                    <button class="primeiro_ex">Column-reverse</button>
+                    <button class="primeiro_ex">Row</button>
+                    <button class="primeiro_ex">Row-reverse</button>
+                </div>
 
-        <ul>
-            <li><strong>display: </strong> define um flex container, habilita o contexto flex para todos os filhos (flex itens internos)</li>
-        </ul>
+<!--1.3-->  <ul><li><strong>flex-wrap: </strong> diz se o item pode ou não mover para outra linha caso eles não caibam na primeria.</li></ul>
 
-        <div class="codigo">
+                <div class="codigo">
+                    <pre><code>.container{ flex-wrap: nowrap | wrap | wrap-reverse; }</code></pre>
+                </div>
 
-            <code>.container {display: flex | inline-flex;} </code>
+                <div class="demonstracao">
+                    <p>Vamos analizar o comportamento das imagens abaixo com cada um dos tipos.</p>
+
+                    <ul><ul>
+                        <li><strong>nowrap: </strong>Não deixa que os elementos passem para a próxima linha quando não estiverem cabendo no container.</li>
+                        <li><strong>wrap: </strong> Passa os elementos que não cabem no container a direita para a proxima linha.</li>
+                        <li><strong>wrap-reverse: </strong> Inverte a disposição da função anterior.</li>
+                    </ul></ul> 
+                    <div class="aplicacao2">
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="borboleta">
+                        </div>
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="preguiça">
+                        </div>
+                        
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="vaso de planta">
+                        </div>
+                    </div>
+
+
+                    
+                    <button class="segundo_ex">Nowrap</button>
+                    <button class="segundo_ex">Wrap</button>
+                    <button class="segundo_ex">wrap-reverse</button>
+
+                    
+                </div>
+
+            
+<!--1.4-->  <ul><li><strong>justity-content: </strong> define o alinhamento horizontal dos itens quando esses não usam todo o espaço do container.</li></ul>
+
+                <div class="codigo">
+                    <pre><code>.container{ justify-content: flex-start | flex-end center | space-between | space-around; } </code></pre>
+                </div>
+
+
+                <div class="demonstracao">
+
+                    <p>Vejamos o comportamento:</p>
+
+                    <div class="aplicacao3">
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="borboleta">
+                        </div>
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="preguiça">
+                        </div>
+                        
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="vaso de planta">
+                        </div>
+                    </div>
+
+                    <button class="terceiro_ex">Flex-start</button>
+                    <button class="terceiro_ex">Flex-end </button>
+                    <button class="terceiro_ex">Center</button>
+                    <button class="terceiro_ex">Space-between</button>
+                    <button class="terceiro_ex">Space-around</button>
+
+                </div>
+
+
+<!--1.5-->  <ul><li><strong>align-items: </strong>define o alinhamento dos itens no cross-axis. É similar ao justify-content, porém usado no eixo transversal.</li></ul>
+
+                <div class="codigo"><pre><code>.container{ align-items: stretch | flex-start | flex-end | center | baseline }</code></pre></div>
+
+                <div class="demonstracao">
+
+                    <p>Vejamos o comportamento:</p>
+
+                    <div class="aplicacao4">
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="borboleta">
+                        </div>
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="preguiça">
+                        </div>
+                        
+                        <div class="container">
+                            <img style="width: 90px;" src="images/img_demonstracao/gato.png" alt="vaso de planta">
+                        </div>
+                    </div>
+
+                    <button class="quarto_ex">stretch</button>
+                    <button class="quarto_ex">Flex-start </button>
+                    <button class="quarto_ex">Flex-end</button>
+                    <button class="quarto_ex">Center</button>
+                    <button class="quarto_ex">Baseline</button>
+
+                </div>
+
+
+
 
         </div>
 
-        <img src="images/img_pag/img1.png" alt="Layout Flex">
 
-        <ul>
-            <li><strong>flex-direction: </strong> estabelece o main-axis, definindo a direção dos itens dentro de um flex container.</li>
-        </ul>
-
-        <div class="codigo">
-
-            <code>.container { flex-direction: row | row-reverse | column | column-reverse; }</code>
-
-        </div>
-
-        <img src="images/img_pag/img2.png" alt="main-axis">
-
-        <ul>
-            <li><strong>row: </strong> dispoe os elementos em uma linha da esquerda para direita.</li>
-            <li><strong>row-reverse: </strong>dispoe os elementos em uma lista da direita para esquerda.</li>
-            <li><strong>column: </strong> dispoe os elementos em uma coluna de cima para baixo.</li>
-            <li><strong>column-reverse: </strong> dispoe os elementos em uma coluna de baixo para cima.</li>
-        </ul>
-
-        <div class="demonstracao">
-            <p>Vamos analizar o comportamento das imagens abaixo quando utilizamos cada um desses elementos. </p>
-            <div class="aplicacao">
-                <img src="images/img_demonstracao/exp1.png" alt="primeiro_elem" style="width: 200px;">
-                <img src="images/img_demonstracao/exp2.png" alt="segundo_elem" style="width: 200px;">
-                <img src="images/img_demonstracao/exp3.png" alt="terceiro_elem" style="width: 200px;">
-            </div>
-       
-            <button class="primeiro_ex">column</button>
-            <button class="primeiro_ex">row</button>
-            <button class="primeiro_ex">column-reverse</button>
-            <button class="primeiro_ex">row-reverse</button>
-       
-        </div>
+        
+        
         
 
         
@@ -75,6 +178,106 @@
 
     </div>
 
+
+
+
+    <div class="topicos" id="Topico2">
+        <h1>Flex Itens</h1>
+
+        <p>Os Flex Itens são os filhos diretos de um Flex Container, um elemento se torna um flex container com <code>display: flex</code></p>. Um Flex Item também pode se tornar um container, basta definir <code>display:flex</code> nele, assim os filhos dele também serão flex containters.
+
+        <div class="sub_topic">
+            <ul><li><strong>flex-grow: </strong>define a proporção com que um item deve crescer, caso seja necessário</li></ul>
+            <div><pre><code>.item { flex-grow: <número>; /* padrão 0 */ }</code></pre></div>
+
+            <ul><li><strong>flex-shrink: </strong>define a proporção com que um item deve encolher, caso seja necessário</li></ul>
+            <div><pre><code>.item { flex-grow: flex-shrink: <número>; /* padrão 1 */ }</code></pre></div>
+
+            <ul><li><strong>flex-basis: </strong>define o tamanho inicial que um item deve ter antes que o espaço ao seu redor seja distribuído</li></ul>
+            <div><pre><code>.item { flex-grow: flex-shrink: <número>; /* padrão 1 */ }</code></pre></div>
+
+            <ul><li><strong>flex: </strong>atalho para as propriedades flex-grow, flex-shrink e flex-basis, nesta ordem</li></ul>
+            <div><pre><code>.item { flex-grow: flex: <flex-grow> <flex-shring> <flex-basis> }/* valor padrão: 0 1 auto */</code></pre></div>
+
+            <ul><li><strong>order: </strong>modifica a ordem dos flex itens</li></ul>
+            <div><pre><code>.item { order: <numero> } /* valor padrão: 0 */</code></pre></div>
+
+            <ul><li><strong>align-self: </strong>define o alinhamento específico de um único flex item dentro do container</li></ul>
+            <div><pre><code>.item { order: stretch | flex-start | flex-end | center | baseline }/* valor padrão: flex-start */</code></pre></div>
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+<div class="topicos">
+    <h1>Explicação Interativa sobre CSS Grid</h1>
+
+    <div class="sub_topic">
+    <h2>Linhas de Grid</h2>
+    <div class="explicacao">
+        Ao criar um grid, as linhas e colunas são automaticamente definidas.<br>
+        Exemplo:
+        <div class="grid-demo">
+        <div>1</div><div>2</div><div>3</div><div>4</div>
+        <div>1</div><div>2</div><div>3</div><div>4</div>
+        <div>1</div><div>2</div><div>3</div><div>4</div>
+        <div>1</div><div>2</div><div>3</div><div>4</div>
+        </div>
+    </div>
+
+    <h2>Posicionando Itens com Grid Lines</h2>
+    <div class="explicacao">
+        Usamos <code>grid-column-start</code>, <code>grid-column-end</code>, <code>grid-row-start</code> e <code>grid-row-end</code> para posicionar elementos.
+        <div class="grid-demo" style="position: relative;">
+        <div class="highlight" style="grid-column: 1/3; grid-row: 1/3;">Item 1</div>
+        <div>2</div><div>3</div><div>4</div>
+        <div>5</div><div>6</div><div>7</div>
+        </div>
+    </div>
+
+    <h2>Grid Areas</h2>
+    <div class="explicacao">
+        Com <code>grid-template-areas</code> podemos nomear as áreas e posicionar os elementos com clareza.
+        <div class="area-container">
+        <header>Header</header>
+        <nav>Navigation</nav>
+        <main>Main Area</main>
+        <aside>Ads</aside>
+        <footer>Footer</footer>
+        </div>
+    </div>
+
+    <h2>Alinhando Itens do Grid</h2>
+    <div class="explicacao">
+        <strong>justify-items</strong> alinha no eixo horizontal. <br>
+        <strong>align-items</strong> alinha no eixo vertical. <br>
+        Use os botões abaixo para ver o comportamento:
+
+        <div class="btns">
+        <button onclick="setAlign('start')">Start</button>
+        <button onclick="setAlign('center')">Center</button>
+        <button onclick="setAlign('end')">End</button>
+        <button onclick="setAlign('stretch')">Stretch</button>
+        </div>
+
+        <div class="alignment-demo" id="alignment-demo">
+        <div>A</div><div>B</div><div>C</div><div>D</div>
+        </div>
+    </div>
+</div>
+</div>
     <script src="main.js"></script>
 </body>
+
+
+
+
 </html>
