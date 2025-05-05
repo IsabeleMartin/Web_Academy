@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1>Design Responsivo</h1>
+        <ul>
+            <li><strong>Web Design Responsivo: </strong>é uma abordagem destinada a elaborar sites que forneçam uma ótima experiência de visualização para uma ampla gama de dispositivos.</li>
+        </ul>
+    </div>
+    <div>
+        <h1>Media Queries</h1>
+
+        <ul>
+            <li><strong>Média Queries: </strong>são utilizadas para mudar o layout do site para de acordo com o tipo de dispositivo que acessa.</li>
+            <li>Elas permitem que a página use regras de estilo CSS com base
+                nas seguintes características do dispositivo:</li>
+                
+                <ul>
+                    <li><strong>Height: </strong> Largura da janela do browser. Valor: medidas de comprimento. Aceita prefixo min/max: Sim.</li>
+                    <li><strong>Width: </strong> Altura da janela do browser. Valor: medidas de comprimento. Aceita prefixo min/max: Sim.</li>
+                    <li><strong>Device-width: </strong> Tamanho da tela. Valor: medidas de comprimento. Aceita prefixo min/max: Sim.</li>
+                    <li><strong>Device-height: </strong> Altura da tela. Valor: medidas de comprimento. Aceita prefixo min/max: Sim.</li>
+                    <li><strong>Orientation: </strong> AOrientação da mídia. Valor: portrait (retrato) ou landscape (paisagem). Aceita prefixo min/max: Não.</li>
+                </ul>
+
+            <li>Outras características que podem ser avaliadas por expressões
+                Media Queries:</li>
+
+                <ul>
+                    <li><strong>Device-aspect-ratio: </strong> Proporção da tela do dispositivo. Aceita prefixo min/max: Não.</li>
+                    <li><strong>Color: </strong> Número de bits por cor. Se o valor for zero o dispositivo é monocromático. Valor: numérico. Aceita prefixo min/max: Sim.</li>
+                    <li><strong>Resolution: </strong> Resolução do dispositivo (densidade por pixel). Valor: número em DPI ou DCM. Aceita prefixo min/max: Sim.</li>
+                    <li><strong>Operadores: </strong> Altura da tela. Valor: medidas de comprimento. Aceita prefixo min/max: Sim.</li>
+                    
+                </ul>
+
+
+        </ul>
+    </div>
+
+    <div>
+        <h1>Exemplos de Media Queries</h1>
+        <ul><li>É possiível criar um CSS específico para telas de, no máximo, 430px (como iPhone em mode retrato):</li></ul>
+
+        <div>
+            <pre><code>
+&#60link rel="stylesheet" href="iphone.css"
+    media="screen and (max-width: 430px)"&#62 
+            </code></pre>
+        </div>
+
+        <ul><li>Além dos media queries de tamanho, podemos adotar
+            uma media query que pega a orientação do dispositivo:</li></ul>
+
+        <div>
+            <pre><code>
+&#60link rel="stylesheet" href="phones.css"
+    media="screen and (min-width: 320px) and
+    (orientation: portrait)"&#62 
+                </code></pre>
+        </div>
+
+
+        <ul><li>Por exemplo, podemos customizar o layout de acordo
+            com a forma do usuário segurar o aparelho</li>
+            <ul>
+                <li>É sabido que um celular em modo retrato é mais usável com
+                    navegação na parte de baixo à esquerda; e, no modo paisagem,
+                    com navegação no topo e nas laterais</li>
+            </ul>
+            <li>Além de declarar as media queries na tag &#60link&#62 no
+                HTML, podemos também fazer direto dentro do CSS</li>
+        </ul>
+
+        <div>
+            <pre><code>
+/* regra aplicada em todo lugar */
+body { background: blue; }
+/* aplica somente a partir de 768px */
+@media screen and (min-width: 768px) {
+    body { font-size: 80%; }
+}
+/* aplica somente a partir de 1024px em landscape */
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+    nav { display: flex; }
+}
+
+            </code></pre>
+        </div>
+
+    </div>
+</body>
+</html>

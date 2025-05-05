@@ -1,0 +1,82 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-top: 40px;
+}
+
+div {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #2d89ef;
+}
+
+/* Estilo para blocos de código */
+pre {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: "Courier New", monospace;
+    display: block;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    body {
+        background-color: #e0f7fa;
+    }
+
+    div {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    code {
+        font-size: 0.9rem;
+    }
+}
