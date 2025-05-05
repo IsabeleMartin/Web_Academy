@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Lista</h1>
+
+    <div>
+        <p id="lista-titulo" name="lista">Meus itens:</p>
+    </div>
+
+    <ul id="lista-itens-1">
+        <li id="one" class="hot">item a</li>
+        <li id="two" class="hot">item b</li>
+        <li id="three" class="hot">item c</li>
+        <li id="four">item d</li>
+    </ul>
+    <script>
+
+        let startItem = document.getElementById("lista-itens-1");
+
+
+        /* i) Imprima no console o primeiro e último filho elementos HTML da lista-itens-1 */
+
+
+        let aux = startItem.firstElementChild;
+        console.log("primeiro filho elemento HTML da lista-itens-1\n ",aux);
+        aux = startItem.lastElementChild;
+        console.log("ultimo filho elemento HTML da lista-itens-1\n ",aux);
+
+
+
+        /* ii) Imprima no console o elemento HTML pai da lista-itens-1; */
+
+        aux = startItem.parentElement;
+        console.log("elemento HTML pai da lista-itens-1\n", aux);
+
+        /* iii) Imprima no console todos os filhos elementos HTML da lista-itens-1, um a um;*/
+
+        aux = startItem.children;
+
+        for(let i = 0; i < aux.length; i++){
+            console.log("filho elemento HTML ", i ," da lista-itens-1\n",aux[i]);
+        }
+
+        /* iv) Imprima no console os irmãos elemento HTML do item com id= 'two' */
+
+        let item2 = document.getElementById("two");
+        aux = item2.nextElementSibling;
+        console.log("os irmãos elemento HTML do item com id= 'two\n'");
+        console.log("Next sibling\n",aux);
+        aux = item2.previousElementSibling;
+        console.log("Previous sibling\n",aux);
+  </script>
+</body>
+
+</html>

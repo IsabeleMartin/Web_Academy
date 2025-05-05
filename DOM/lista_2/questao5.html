@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To-do</h1>
+  
+    <div>
+      <p id="lista-titulo" name="lista">Lista de atividades:</p>
+    </div>
+  
+    <div>
+      <input id="new_item" placeholder="Digite aqui o item" />
+      <button id="addr">Adicionar</button>
+    </div>
+  
+    <ul id="lista-itens">
+      <li>item a</li>
+    </ul>
+  
+    <div>
+      <button id="remover">Remover último item</button>
+    </div>
+
+    <script>
+    /*a)    Implementar funcionalidade de adicionar novo item à lista, de forma
+            dinâmica, a partir do campo de <input> e botão de “adicionar” - 2,5 pontos
+                i) Considerar que não é permitido adicionar itens vazios, ou seja,
+                string vazia ' '*/
+        
+        addr.addEventListener('click',function(e){
+            let aux = document.getElementById('new_item');
+            if(aux.value.trim() === ""){
+                alert("Item Vazio!");
+            }else if(aux.value !== ""){
+
+
+                let aux_newItem = document.createTextNode("item " + aux.value);
+                let new_li = document.createElement('li');
+                new_li.appendChild(aux_newItem);
+                let lista = document.getElementById("lista-itens");
+                lista.appendChild(new_li);
+                aux.value = "";
+            }
+        });
+
+
+
+    /*b)    Implementar funcionalidade de remover último item da lista, de forma
+            dinâmica, a partir do botão de “remover último item” - 2,5 pontos
+                i) Considerar que essa funcionalidade só faz sentido caso haja
+                pelo menos um (1) elemento presente na lista de itens */
+
+        remover.addEventListener('click',function(e){
+            let lista = document.getElementById("lista-itens");
+            if(lista.children.length === 0){
+                alert("Lista Vazia!");
+            }else if(lista.children.length !== 0){
+                let lastItem = lista.lastElementChild;
+                lista.removeChild(lastItem);
+            }
+        });
+
+    </script>
+
+
+</body>
+</html>
