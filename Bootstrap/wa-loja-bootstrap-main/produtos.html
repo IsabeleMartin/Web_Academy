@@ -8,6 +8,34 @@
   </head>
   <body>
     <!-- navbar -->
+        <nav class="navbar navbar-expand-md w-100 bg-dark bg-success navbar-dark" >
+     
+        <a class="navbar-brand ms-3" href="#">IMTechnology</a>
+        
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         
+          <ul class="navbar-nav me-auto mb-lg-1">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="produtos.html">Gerenciar Produtos</a>
+            </li>
+                        
+          </ul>
+         
+          <div class="ms-auto me-3">
+            <button class="btn btn-primary">Sair</button>
+          </div>
+        </div>
+     
+    </nav>
     <!-- navbar -->
 
     <!-- gerenciar produtos -->
@@ -55,7 +83,7 @@
              <th scope="row">4</th>
              <td>Umidificador</td>
              <td>R$ 100,00</td>
-             <td>0</td>
+             <td class="text-danger">0</td>
              <td><button class="btn btn-secondary">Editar</button> <button class="btn btn-secondary">Excluir</button></td>
            </tr>
          </tbody>
@@ -67,14 +95,15 @@
     <!-- gerenciar produtos -->
 
     <!-- modal cadastrar produtos -->
-    <div class="modal fade align-content-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+          <form>
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Produto</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body form-check">
             
             <label for="produto" class="form-label">Produto</label>
             <input 
@@ -83,14 +112,17 @@
               id="produto"
               required
             >
-            <label for="preco" class="form-label">Produto</label>
+            <label for="preco" class="form-label">Preço</label>
+            
             <input 
+              
               type="number"
               class="form-control form-control-lg"
               id="preco"
+              placeholder="0,00"
               required
             >
-            <label for="estoque" class="form-label">Produto</label>
+            <label for="estoque" class="form-label">Estoque</label>
             <input 
               type="number"
               class="form-control form-control-lg"
@@ -101,8 +133,9 @@
               
           </div>
           <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Confirmar Cadastro</button>
+            <button type="submit" class="btn btn-primary">Confirmar Cadastro</button>
           </div>
+          </form>
         </div>
       </div>
     </div>
