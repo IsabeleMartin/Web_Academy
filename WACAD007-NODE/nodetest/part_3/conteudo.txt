@@ -1,0 +1,5 @@
+Nesse capitulo será abordado o servidor Web
+    - Criação do servidor por meio de modulos built-in http
+    - req: objeto que representa a requisição do usuário
+    - res: objeto que representa a resposta ao usuário
+    - Passagem de Parâmetro - ARGV

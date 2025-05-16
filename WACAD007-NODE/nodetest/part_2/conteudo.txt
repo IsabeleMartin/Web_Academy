@@ -1,0 +1,10 @@
+Na segunda parte foi aprendido a:
+    - Utilização do módulo File System (fs) (op de I/O)
+    - Função callbak
+    - Instalação do Gerenciador de pacote Node
+        -- apt install npm
+    - Criação do packege.json
+        - arq q salva metadados da aplicação e suas dependências
+        - npm init -y
+    - Incluindo o framework express
+        - npm install express

@@ -1,0 +1,5 @@
+Essa primeira parte mostra:
+    - Como importar módulos por meio do request
+    - Criar um servidor
+    - Enviar resposta ao Cliente
+    - Definir porta a ser ouvida
