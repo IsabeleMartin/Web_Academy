@@ -1,0 +1,6 @@
+Nesse capitulo apredemos sobre variáveis de ambiente.
+    - Utilizadas para armazenar variáveis utilizadas no ambiente node
+    - São sempre nomeadas em caixa alta
+    - Criamos arquivos .env.Name para definir as variáveis
+    - Para carregar as variáveisna aplicação, usamos o pacote dotenv
+    
