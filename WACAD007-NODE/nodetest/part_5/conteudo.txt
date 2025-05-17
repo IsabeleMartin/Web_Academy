@@ -1,0 +1,9 @@
+Nesse bloco falaremos sobre scripts de execução
+
+    - Propriedade do arquivo package.json
+    - Cria atalhos para scripts relacionados ao app
+    - Cria meio que fosse um aplido
+        - Ex: start = node index.js
+    - Para variáveis do programa como start, stop entre outros, não há necessidade de adicinar o run ao executar, agora em outras, é preciso.
+        - npm run <NAME_SCRIPT>
+        

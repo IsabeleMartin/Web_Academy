@@ -1,0 +1,9 @@
+Nesse bloco trataremos sobre nodemom
+    - reinicializa a aplicação sempre que houver uma mudança no seu código fonte
+    - npm install nodemon --save-dev ( pois não é necessário em outro ambiente como: produção)
+    - O nodemon cria um link simbólico em node_modules/.bin, que deve ser usado na inicialização da aplicação.
+    - Executando arqvs de .bin 
+        - npx - executa pacote npm, e scripts dos pacotes instalados por npm
+
+    - Inicialização da aplicação por meio do nodemon
+        - npx nodemon index.js
