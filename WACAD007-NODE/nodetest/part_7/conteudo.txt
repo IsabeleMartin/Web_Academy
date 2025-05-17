@@ -1,0 +1,11 @@
+Variáveis de Ambiente NODE_ENV
+    - É preciso de configurações diferente para ambiente de produção e desenvolvimento
+    - O node sempre assume que está no ambiente de desenvolvimento
+    - Pode-se definir o ambiente de execução por meio do NODE_ENV
+        - export NODE_ENV= production or
+        - "start": "NODE_ENV=development nodemon index.js"
+    - Pode-se ter agora dois tipos de arquivos .env
+        - .env.development usado em ambiente de desenvolvimento
+        - .env.production usando em ambiente de produção
+        - Como selecionar o arquivo certo:
+            - dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
