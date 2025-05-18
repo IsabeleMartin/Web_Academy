@@ -1,0 +1,5 @@
+Módulos no NodejS
+    - É possível criar módulos
+    - Dentro do arquivo que contém as funções é preciso dizer quais funções podem ser acessadas pelo usuário.
+        - module.export = { upper:upper, lower: lower};
+        
