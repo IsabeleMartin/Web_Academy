@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- Mudado de "en" para "pt-BR" para refletir o conteúdo em português -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Objetos em JavaScript</title>
+
+  <!-- Adicionado bloco de estilo para formatar visualmente os elementos -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px; /* Margem em volta do conteúdo */
+       
+    }
+
+    #Objetos {
+      max-width: 800px; /* Largura máxima para melhor leitura */
+      margin: auto;
+    }
+
+    #Arrays {
+      max-width: 800px; /* Largura máxima para melhor leitura */
+      margin: auto;
+    }
+
+    #funcoes {
+      max-width: 800px; /* Largura máxima para melhor leitura */
+      margin: auto;
+    }
+
+    #escopo {
+      max-width: 800px; /* Largura máxima para melhor leitura */
+      margin: auto;
+    }
+
+
+
+    .exemplo {
+      border: 1px solid #ccc; /* Borda clara para destaque */
+      padding: 15px;
+      margin-top: 20px;
+      background-color: #f9f9f9; /* Fundo levemente acinzentado */
+    }
+
+    pre {
+      background-color: #eee; /* Fundo para blocos de código */
+      padding: 10px;
+      overflow-x: auto; /* Permite rolagem horizontal se necessário */
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada */
+    }
+
+    h1, h2 {
+      color: #333; /* Cor do título mais escura para contraste */
+    }
+  </style>
+
+</head>
+
+<body>
+
+    <div id="Objetos">
+        <h1>Objetos</h1>
+        <!-- Texto reescrito para clareza -->
+        <p>Em JavaScript, um objeto é uma coleção dinâmica de pares chave-valor, onde os valores podem ser de qualquer tipo de dado.</p>
+
+        <div class="exemplo"> <!-- Substituído o uso incorreto de border="1" por classe com CSS -->
+
+        <h2>Exemplo de Objeto</h2>
+
+        <!-- Substituído <code> simples por <pre><code> para preservar indentação e quebra de linha -->
+        <pre><code>
+    let ufam = {
+    nome: "Universidade Federal do Amazonas",
+    fundacao: 1909,
+    ativa: true
+    };
+
+    document.writeln(ufam.nome);
+    document.writeln(ufam.fundacao); 
+    document.writeln(ufam.ativa);
+
+    document.writeln("&lt;br&gt;");
+
+    document.writeln(ufam["nome"]);    
+    document.writeln(ufam["fundacao"]);
+    document.writeln(ufam["ativa"]);
+        </code></pre>
+        </div>
+        <!-- Corrigido "pode ser acessadas" (acordo com sujeito "propriedades") -->
+        <p>As propriedades do objeto podem ser acessadas de duas formas: por meio de ponto (<code>ufam.nome</code>) ou por colchetes (<code>ufam["nome"]</code>).</p>
+
+        <!-- Reforço conceitual para uso de variáveis como chave -->
+        <p>Também é possível utilizar uma variável com o nome da propriedade, como em <code>ufam[variavel]</code>.</p>
+
+        <!-- Corrigida explicação sobre nomes com espaços ou numéricos -->
+        <p>O uso de colchetes é obrigatório quando o nome da propriedade contém espaços ou começa com números.</p>
+
+        <!-- Adicionado subtítulo mais explicativo -->
+        <p>Propriedades podem ser adicionadas ou removidas dinamicamente:</p>
+        <ul>
+            <!-- Corrigido "adicinar" para "adicionar" -->
+            <li><strong>Remover:</strong> <code>delete ufam.fundacao;</code></li>
+            <li><strong>Adicionar:</strong> <code>ufam.sigla = "UFAM";</code></li>
+        </ul>
+
+        <!-- Adicionado outro exemplo de código usando função no objeto -->
+        <p>Também é possível definir funções dentro de objetos:</p>
+        <div class="exemplo">
+            <h2>Exemplo de Função em Objeto</h2>
+        <pre><code>
+    let ufam = {
+    nome: "Universidade Federal do Amazonas",
+    fundacao: 1909,
+    ativa: true,
+    imprime: function () {
+        document.writeln(this.nome);
+    }
+    };
+
+    ufam.imprime();
+        </code></pre>
+            </div>
+        <p>A palavra-chave <code>this</code> refere-se ao próprio objeto, permitindo acessar suas propriedades e métodos.</p>
+
+        <!-- Corrigido "pecorrer" para "percorrer" -->
+        <p>É possível percorrer cada propriedade de um objeto com um laço <code>for..in</code>:</p>
+        <div class="exemplo">
+            <h2>Exemplo de for..in</h2>
+        <pre><code>
+    for (let prop in ufam) {
+    document.writeln(prop + ": " + ufam[prop] + "&lt;br&gt;");
+    }
+        </code></pre>
+        </div>
+        <!-- Texto esclarecido -->
+        <p>Quando uma função é percorrida dessa forma, seu conteúdo é convertido em string e exibido.</p>
+
+        <p>O operador <code>in</code> pode ser usado para verificar se uma propriedade existe em um objeto:</p>
+            <div class="exemplo">
+                <h2>Exemplo de operador in</h2>
+        <pre><code>
+    if ("nome" in ufam) {
+    document.writeln("A propriedade nome existe");
+    } else {
+    document.writeln("A propriedade nome não existe");
+    }
+        </code></pre>
+        </div> 
+    </div> <!-- Fim de Objetos-->
+
+    <div id="Arrays">
+    <h1>Arrays</h1>
+
+    <p>Os Arrays diferentemente dos objetos citados acima, não possuem valores referenciados por propriedades/chaves, ele são referenciados por posição numérica.</p>
+    
+    <div class="exemplo">
+    <pre>
+    <code>
+let arr = [
+    "Universidade Federal do Amazonas",
+    "1909",
+    true
+];
+document.writeln(arr[0] + "&lt;br&gt;");
+document.writeln(arr[1] + "&lt;br&gt;");
+document.writeln(arr[2] + "&lt;br&gt;");
+document.writeln(arr.length + "&lt;br&gt;");
+document.writeln(typeof arr);
+</code>
+    </pre>
+
+    </div>
+    <div class="exemplo">
+        <h2>Formas de criar um array</h2>
+
+        <pre><code>
+let arr = [
+    "Universidade Federal do Amazonas",
+    1909,
+    true
+];
+let arr = [];
+arr[0] = "Universidade Federal do Amazonas",
+arr[1] = 1909,
+arr[2] = true
+
+let arr = new Array();
+arr[0] = "Universidade Federal do Amazonas",
+arr[1] = 1909,
+arr[2] = true
+
+        </code></pre>
+    </div>
+
+    <p>Todo array possui um método <code>forEach</code> que permite pecorrer os elementos do array</p>
+
+    <div class="exemplo">
+        <h2>Exemplo de forEach</h2>
+        <pre><code>
+let arr = [
+    "Universidade Federal do Amazonas",
+    1909,
+    true
+];
+
+arr.forEach(function (valor) {
+    document.writeln(valor + "<br>");
+});"
+        
+    </div>
+
+  </div><!-- Fim de Arrays-->
+
+  <div id="Funcoes">
+
+    <h1>Funções</h1>
+    <p>Assim como o array, as funções também são objetos. Existem três métodos de definir uma função</p>
+
+    <div class="exemplo">
+        <h2>Exemplo de função</h2>
+        <pre><code>
+/* Declaração de Função */
+function imprimir (str){
+    console.log(str);
+}
+
+/*Expressão de função*/
+const imprimir = function (str){
+    console.log(str);
+};
+
+/*vetor de função*/
+const imprimir = (str) => {
+    console.log(str);
+};
+            
+
+    </div>
+    
+    <h2>Funções de primeira classe</h2>
+
+    <ul>
+        <li>Ações permitidas por funções de primeira classe:</li>
+        <ul>
+            <li>Atribuir uma função a uma variável</li>
+        </ul>
+        <div class="exemplo">
+            <pre><code>
+const hello = function() {
+return "Hello World";
+}
+            </code></pre>
+                    
+        </div>
+        <ul>
+            <li>Retornar uma função como valor de outra função</li>
+        </ul>
+            <div class="exemplo">
+                <pre><code>
+const hello = function() {
+    return function() {
+        return "Hello World";
+    };
+}
+    
+console.log(hello);
+console.log(hello());
+console.log(hello()());
+
+                </code></pre>
+                        
+            </div>
+            <ul>
+            <li>Passar uma função como parâmetro para outra função</li>
+            </ul>
+            <div class="exemplo">
+                <pre><code>
+const produto = {
+    tipo: 'computador',
+    preco: 2750.0
+}
+    
+const impostoPessoaFisica = function (preco) { 
+    return preco * 0.15;
+}
+    
+const impostoPessoaJuridica = function (preco) { 
+    return preco * 0.12;
+}
+    
+const calculaPreco = function (produto, formulaImposto) {
+    return produto.preco + formulaImposto(produto.preco)
+} 
+    
+calculaPreco(produto,impostoPessoaFisica); // 3162.5
+calculaPreco(produto,impostoPessoaJuridica); // 3080
+
+                </code></pre>
+                        
+            </div>
+            <ul>
+            <li>Armazenar uma função em uma estrutura de dados</li>
+            </ul>
+    </ul>
+    
+
+ 
+    <div id="escopo">
+        <h1>Escopo em JavaScript</h1>
+
+        <div class="exemplo">
+          <h2>1. Escopo Global e Local</h2>
+          <h3>Exemplo de variáveis definidas dentro e fora de funções</h3>
+          <p>Variáveis definidas fora de funções são globais. Dentro de funções, são locais.</p>
+          <pre><code>let globalVar = "sou global";
+      
+      function teste() {
+        let localVar = "sou local";
+        console.log(globalVar); // OK
+        console.log(localVar);  // OK
+      }
+      
+      teste();
+      console.log(localVar); // ❌ Erro</code></pre>
+        </div>
+      
+        <div class="exemplo">
+          <h2>2. var, let e const</h2>
+          <h3>Comparação entre escopos de var, let e const</h3>
+          <p>Diferenças de escopo e comportamento.</p>
+          <pre><code>if (true) {
+        var x = 10;
+        let y = 20;
+        const z = 30;
+      }
+      
+      console.log(x); // ✅
+      console.log(y); // ❌
+      console.log(z); // ❌</code></pre>
+        </div>
+      
+        <div class="exemplo">
+          <h2>3. var em loops</h2>
+          <h3>Escopo de var e let dentro de estruturas de repetição</h3>
+          <pre><code>for (var i = 0; i < 3; i++) {
+        // faz algo
+      }
+      console.log(i); // ✅ 3
+      
+      for (let j = 0; j < 3; j++) {
+        // faz algo
+      }
+      console.log(j); // ❌ Erro</code></pre>
+        </div>
+      
+        <div class="exemplo">
+          <h2>4. Acesso fora do escopo</h2>
+          <h3>Exemplo de erro ao acessar variável fora do escopo</h3>
+          <pre><code>function exemplo() {
+        let interna = 5;
+      }
+      console.log(interna); // ❌ ReferenceError</code></pre>
+        </div>
+      
+        <div class="exemplo">
+          <h2>5. Funções Imediatas (IIFE)</h2>
+          <h3>Execução imediata e isolamento de escopo</h3>
+          <pre><code>(function () {
+        let segredo = "oculto";
+        console.log("Executado imediatamente");
+      })();
+      
+      console.log(segredo); // ❌ Erro</code></pre>
+        </div>
+      
+        <div class="exemplo">
+          <h2>6. Cadeia de Escopos</h2>
+          <h3>Como o JavaScript procura variáveis nos escopos pais</h3>
+          <pre><code>let valor = "global";
+      
+      function pai() {
+        let valor = "pai";
+        function filho() {
+          console.log(valor); // "pai"
+        }
+        filho();
+      }
+      pai();</code></pre>
+        </div>
+      
+        <div class="exemplo">
+          <h2>7. Closures</h2>
+          <h3>Funções internas que lembram o escopo onde foram criadas</h3>
+          <pre><code>function contador() {
+        let count = 0;
+        return function () {
+          count++;
+          console.log(count);
+        };
+      }
+      
+      let incrementar = contador();
+      incrementar(); // 1
+      incrementar(); // 2
+      incrementar(); // 3</code></pre>
+        </div>
+    </div>
+</body>
+</html>
