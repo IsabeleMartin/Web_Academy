@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+      .product-card {
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .sidebar {
+        background-color: #f8f9fa;
+        padding: 20px;
+        width: 300px;
+        height: 100vh;
+        border-left: 2px solid #ccc;
+      }
+      .sidebar h4 {
+        margin-bottom: 20px;
+      }
+      .product-summary {
+        margin-bottom: 10px;
+      }
+      .btn {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra lateral (carrinho) -->
+    <div class="sidebar">
+      <h4>Carrinho de Compras</h4>
+      <div id="cart-summary">
+        <!-- Produtos adicionados ao carrinho aparecerão aqui -->
+        <p id="cart-empty">Seu carrinho está vazio.</p>
+      </div>
+      <div id="cart-total" class="mt-3">
+        <strong>Total: R$ 0,00</strong>
+      </div>
+      <button class="btn btn-primary mt-4" id="clear-cart">Limpar Carrinho</button>
+    </div>
+
+    <!-- Conteúdo principal (produtos) -->
+    <div class="container">
+      <h1>Produtos</h1>
+      <div class="row" id="product-list">
+        <!-- Produtos serão listados aqui -->
+      </div>
+    </div>
+
+    <!-- Referência para o arquivo JavaScript compilado -->
+    <script src="js/main.js"></script> <!-- Certifique-se de que o JavaScript esteja no local correto -->
+  </body>
+</html>
