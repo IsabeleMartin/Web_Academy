@@ -1,3 +1,2 @@
-Arrumar o botão de editar
-Melhorar o layout da página de estatísticas
-Inserir alunos gerados automaticamente
+arrumar os botões de adicionar 
+arrumar o botão de limpar carrinho
