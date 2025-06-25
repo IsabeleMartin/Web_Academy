@@ -138,3 +138,7 @@ dist
 # ideias em txt
 lembretes.txt
 tarefas.txt
+
+# directories
+./math
+./logs
