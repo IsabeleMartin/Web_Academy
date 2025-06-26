@@ -1,12 +1,12 @@
-import express, { Request, Response} from "express";
+import express from "express";
 import validateEnv from './utils/validateEnv';
 import dotenv from "dotenv";
 
 dotenv.config();
 validateEnv();
 
-const app = express();
 const PORT = process.env.PORT || 3333;
+const app = express();
 
 app.get("/", (req, res) => {
     res.send("Hello World atual!");
