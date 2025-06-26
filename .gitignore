@@ -140,5 +140,4 @@ lembretes.txt
 tarefas.txt
 
 # directories
-./mate
-./log
+log/
