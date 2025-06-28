@@ -20,7 +20,7 @@ export const hb2 = (req: Request, res: Response) => {
         poweredByNodejs: true,
         name: 'Express',
         type: 'Framework',
-        layout: false,
+        layout: 'main',
     });
 };
 
@@ -32,7 +32,7 @@ export const hb3 = (req: Request, res: Response) => {
         { nome: 'Edleno Moura', sala: 1236 },
         { nome: 'Elaine Harada', sala: 1231 },
     ];
-    res.render('hb3', { profes, layout: false });
+    res.render('hb3', { profes, layout:'main' });
 };
 
 // Rota para a página hb4
@@ -43,7 +43,7 @@ export const hb4 = (req: Request, res: Response) => {
         { nome: 'Edleno Moura', sala: 1236 },
         { nome: 'Elaine Harada', sala: 1231 },
     ];
-    res.render('hb4', { profes, layout: false });
+    res.render('hb4', { profes, layout:'main' });
 };
 
 // Rota para a página hb5
@@ -57,12 +57,13 @@ export const hb5 = (req: Request, res: Response) => {
         { name: 'Docker', type: 'Virtualization', poweredByNodejs: false },
         { name: 'Sequelize', type: 'ORM tool', poweredByNodejs: true },
     ];
-    res.render('hb5', { technologies, layout: false });
+    res.render('hb5', { technologies, layout: 'main' });
 };
 
 
 export const testSass = (req: Request, res: Response) => {
     res.render('testSassPage', {
         uf: 'Universidade Federal do Amazonas',
+        layout:'main',
     });
 };
