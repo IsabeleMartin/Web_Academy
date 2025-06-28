@@ -1,0 +1,2 @@
+O que é?
+O diretório de middleware contém "filtros" que são executados antes de a solicitação chegar ao seu destino final (o controlador). Eles podem, por exemplo, verificar se o usuário está autenticado antes de permitir que ele acesse certas páginas, ou registrar logs de todas as requisições feitas ao servidor.

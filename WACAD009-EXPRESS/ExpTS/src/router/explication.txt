@@ -1,0 +1,2 @@
+O que é?
+O diretório router contém arquivos responsáveis por direcionar as solicitações para as funções corretas (controladores). Eles funcionam como "mapas" que dizem ao servidor onde cada solicitação deve ir. Quando você acessa uma página ou faz uma ação, o roteador decide qual controlador deve processar sua solicitação.

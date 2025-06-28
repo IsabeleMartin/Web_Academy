@@ -1,26 +1,18 @@
 import express from 'express';
-import validateEnv from './utils/validateEnv';
-import router from './router/router';
-import dotenv from 'dotenv';
-import { engine } from 'express-handlebars'
+import path from 'path';
+import exphbs from 'express-handlebars';
+import mainRouter from './router/router';
 
-dotenv.config();
-validateEnv();
-
-const PORT = process.env.PORT || 3333;
 const app = express();
 
-app.engine("handlebars", engine());
-app.set("view engine", "handlebars");
-app.set("views", `${__dirname}/views`);
-app.engine("handlebars", engine({
-helpers: require(`${__dirname}/views/helpers/helpers.ts`)
-}));
+// Configuração do motor de templates
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
-app.use(router);
+// Usando o roteador principal
+app.use(mainRouter);
 
-
-
-app.listen(PORT, () => {
-  console.log(`Express app rodando na porta ${PORT}`);
+// Iniciar o servidor
+app.listen(3000, () => {
+  console.log('Servidor rodando na porta 3000');
 });

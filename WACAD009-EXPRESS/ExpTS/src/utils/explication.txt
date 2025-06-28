@@ -1,0 +1,2 @@
+O que é?
+O diretório utils contém funções pequenas e reutilizáveis que ajudam em diversas partes do código. Essas funções podem ser usadas em vários lugares, como validar se um e-mail é válido, formatar datas, ou gerar um código aleatório.

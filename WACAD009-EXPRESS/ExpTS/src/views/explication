@@ -1,0 +1,2 @@
+O que é?
+O diretório views contém os arquivos responsáveis pela aparência do site. São os modelos de página que definem o layout e o conteúdo que será mostrado para o usuário. Por exemplo, quando você visita a página inicial de um site, a visão define o que será mostrado na tela, como textos, imagens e botões.

@@ -1,0 +1,2 @@
+O que é?
+O diretório services contém a "inteligência" do servidor. Ele se conecta ao banco de dados ou a outros sistemas externos para buscar ou enviar dados. Enquanto os controladores lidam com a solicitação do usuário, os serviços fazem o trabalho pesado de manipular dados e garantir que tudo esteja atualizado corretamente.

@@ -1,0 +1,2 @@
+O que é?
+Esse diretório contém os "controladores", que são como gerentes de tarefas. Eles recebem as solicitações do usuário (por exemplo, quando alguém clica em um botão ou acessa uma página) e decidem o que o servidor precisa fazer com essas informações. Por exemplo, se alguém preencher um formulário de cadastro, o controlador vai cuidar de salvar os dados no banco de dados e enviar uma resposta.
