@@ -59,3 +59,10 @@ export const hb5 = (req: Request, res: Response) => {
     ];
     res.render('hb5', { technologies, layout: false });
 };
+
+
+export const testSass = (req: Request, res: Response) => {
+    res.render('testSassPage', {
+        uf: 'Universidade Federal do Amazonas',
+    });
+};

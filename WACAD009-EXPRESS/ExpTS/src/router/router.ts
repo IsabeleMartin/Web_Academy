@@ -10,5 +10,6 @@ router.get('/hb2', mainController.hb2);
 router.get('/hb3', mainController.hb3);
 router.get('/hb4', mainController.hb4);
 router.get('/hb5', mainController.hb5);
+router.get('/testSass', mainController.testSass);
 
 export default router;

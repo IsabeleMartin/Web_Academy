@@ -1,6 +1,7 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
 import mainRouter from './router/router';
+import path from 'path'
 
 const app = express();
 
@@ -18,9 +19,13 @@ app.engine('handlebars', engine({
   defaultLayout: 'main',
 }))
 
+
 app.use('/css', [
-express.static(`${__dirname}/public/css`)
+express.static(`${__dirname}../public/css`)
 ]);
+
+
+
 
 // Usando o roteador principal
 app.use(mainRouter);
