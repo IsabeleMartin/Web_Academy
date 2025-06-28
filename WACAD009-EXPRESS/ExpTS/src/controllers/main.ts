@@ -4,8 +4,13 @@ import { Request, Response } from 'express';
 // Rota para a página hb1
 export const hb1 = (req: Request, res: Response) => {
     res.render('hb1', {
-        mensagem: 'Olá, você está aprendendo Express + HBS!',
-        layout: false,
+        header: 'Header (common)',
+        leftMenu: 'Left Menu (common)',
+        center: 'Center (Changes Dynamically)',
+        rightBar: 'Right Bar (common)',
+        footer: 'Footer (common)',
+
+        layout: 'main',
     });
 };
 

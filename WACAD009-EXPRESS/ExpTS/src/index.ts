@@ -1,13 +1,26 @@
 import express from 'express';
-import path from 'path';
-import exphbs from 'express-handlebars';
+import { engine } from 'express-handlebars';
 import mainRouter from './router/router';
 
 const app = express();
 
 // Configuração do motor de templates
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
+app.set("views", `${__dirname}/views`);
+app.engine("handlebars", engine({
+  helpers: require(`${__dirname}/views/helpers/helpers.ts`),
+}));
+
+app.engine('handlebars', engine({
+  layoutsDir: `${__dirname}/views/layouts`,
+  defaultLayout: 'main',
+}))
+
+app.use('/css', [
+express.static(`${__dirname}/public/css`)
+]);
 
 // Usando o roteador principal
 app.use(mainRouter);
