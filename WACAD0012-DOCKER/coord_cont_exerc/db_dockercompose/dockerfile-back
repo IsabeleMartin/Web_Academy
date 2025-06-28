@@ -1,0 +1,6 @@
+FROM node:18.16-slim
+WORKDIR /home/app
+COPY front.js .
+RUN npm init -y
+EXPOSE 4000
+CMD ["node", "front.js"]
