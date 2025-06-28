@@ -13,6 +13,9 @@ const app = express();
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", `${__dirname}/views`);
+app.engine("handlebars", engine({
+helpers: require(`${__dirname}/views/helpers/helpers.ts`)
+}));
 
 app.use(router);
 

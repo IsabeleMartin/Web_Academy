@@ -3,7 +3,7 @@ import express, { Request, Response } from "express";
 import middleFunction from '../middleware/regiterLogs';
 import loremmiddleware from '../middleware/generateLorem';
 const router = Router();
-const publicPath = `${process.cwd()}/public`; // Correção no template string
+const publicPath = `${process.cwd()}/public`; 
 
 // Teste de possibilidades de get
 router.get("/post", (req, res) => {
@@ -68,6 +68,31 @@ router.get('/hb3', (req, res) => {
     { nome: 'Elaine Harada', sala: 1231 },
   ];
   res.render('hb3', { profes, layout: false });
+});
+
+router.get('/hb4', function (req, res) {
+  const profes = [
+    { nome: 'David Fernandes', sala: 1238 },
+    { nome: 'Horácio Fernandes', sala: 1233 },
+    { nome: 'Edleno Moura', sala: 1236 },
+    { nome: 'Elaine Harada', sala: 1231 },
+  ];
+  res.render('hb4', { profes, layout: false });
+});
+
+
+// Rota para a página hb5 do exercício 8
+router.get('/hb5', function (req, res){
+    const teches = [
+        { name: 'Express', type: 'Framework', poweredByNodejs: true },
+        { name: 'Laravel', type: 'Framework', poweredByNodejs: false },
+        { name: 'React', type: 'Library', poweredByNodejs: true },
+        { name: 'Handlebars', type: 'Engine View', poweredByNodejs: true },
+        { name: 'Django', type: 'Framework', poweredByNodejs: false },
+        { name: 'Docker', type: 'Virtualization', poweredByNodejs: false },
+        { name: 'Sequelize', type: 'ORM tool', poweredByNodejs: true },
+    ];
+    res.render('hb5', { teches, layout: false });
 });
 
 export default router;
