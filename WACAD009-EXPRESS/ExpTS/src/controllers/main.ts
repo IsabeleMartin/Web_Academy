@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 
 // Rota para a página hb1
 export const hb1 = (req: Request, res: Response) => {
-    res.render('hb1', {
+    res.render('exercicios/hb1', {
         header: 'Header (common)',
         leftMenu: 'Left Menu (common)',
         center: 'Center (Changes Dynamically)',
@@ -16,7 +16,7 @@ export const hb1 = (req: Request, res: Response) => {
 
 // Rota para a página hb2
 export const hb2 = (req: Request, res: Response) => {
-    res.render('hb2', {
+    res.render('exercicios/hb2', {
         poweredByNodejs: true,
         name: 'Express',
         type: 'Framework',
@@ -32,7 +32,7 @@ export const hb3 = (req: Request, res: Response) => {
         { nome: 'Edleno Moura', sala: 1236 },
         { nome: 'Elaine Harada', sala: 1231 },
     ];
-    res.render('hb3', { profes, layout:'main' });
+    res.render('exercicios/hb3', { profes, layout:'main' });
 };
 
 // Rota para a página hb4
@@ -43,7 +43,7 @@ export const hb4 = (req: Request, res: Response) => {
         { nome: 'Edleno Moura', sala: 1236 },
         { nome: 'Elaine Harada', sala: 1231 },
     ];
-    res.render('hb4', { profes, layout:'main' });
+    res.render('exercicios/hb4', { profes, layout:'main' });
 };
 
 // Rota para a página hb5
@@ -57,12 +57,12 @@ export const hb5 = (req: Request, res: Response) => {
         { name: 'Docker', type: 'Virtualization', poweredByNodejs: false },
         { name: 'Sequelize', type: 'ORM tool', poweredByNodejs: true },
     ];
-    res.render('hb5', { technologies, layout: 'main' });
+    res.render('exercicios/hb5', { technologies, layout: 'main' });
 };
 
 
 export const testSass = (req: Request, res: Response) => {
-    res.render('testSassPage', {
+    res.render('exercicios/testSassPage', {
         uf: 'Universidade Federal do Amazonas',
         layout:'main',
     });

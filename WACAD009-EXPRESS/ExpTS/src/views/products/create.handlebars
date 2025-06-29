@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-between align-items-center g-3">
+    <h2>Criar produtos</h2>
+    
+    <a href="/products"><i class="bi bi-arrow-left-square"></i></a>
+
+</div>
+
+<div class="container mt-5">
+    <h2>Criar Produto</h2>
+    <form action="/products/create" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="name" name="name" required />
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Preço</label>
+        <input type="number" class="form-control" id="price" name="price" required />
+      </div>
+      <div class="mb-3">
+        <label for="stock" class="form-label">Estoque</label>
+        <input type="number" class="form-control" id="stock" name="stock" required />
+      </div>
+      <button type="submit" class="btn btn-success">Criar Produto</button>
+    </form>
+  </div>

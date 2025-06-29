@@ -6,21 +6,24 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/index.ts",
     "build": "tsc",
-    "sass": "sass public/scss:public/css --watch",
+    "sass": "sass public/scss/main.scss public/css/main.css --watch",
     "start:prod": "node src/index.js",
     "lint": "eslint src/",
     "lint:fix": "npx eslint --fix src/",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "start:db": "json-server --watch data/db.json --port 4455"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.10.0",
     "dotenv": "^16.5.0",
     "envalid": "^8.0.0",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3",
+    "json-server": "^1.0.0-beta.3",
     "lorem-ipsum": "^2.0.8",
     "morgan": "^1.10.0"
   },

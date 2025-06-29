@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-between align-items-center g-3">
+  <h2>Editando produto {{product.id}}: {{product.name}}</h2>
+  <a href="/products"><i class="bi bi-arrow-left-square"></i></a>
+</div>
+
+<div class="container mt-5">
+  <h2>Editar Produto</h2>
+  <form action="/products/update/{{product.id}}" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        value="{{product.name}}"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Preço</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        value="{{product.price}}"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="stock" class="form-label">Estoque</label>
+      <input
+        type="number"
+        class="form-control"
+        id="stock"
+        name="stock"
+        value="{{product.stock}}"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+  </form>
+</div>

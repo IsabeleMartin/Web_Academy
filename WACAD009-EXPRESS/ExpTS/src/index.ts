@@ -1,7 +1,11 @@
 import express from 'express';
+import dotenv from 'dotenv'
 import { engine } from 'express-handlebars';
 import mainRouter from './router/router';
 import path from 'path'
+
+
+dotenv.config();
 
 const app = express();
 
@@ -25,7 +29,7 @@ express.static(`${__dirname}../public/css`)
 ]);
 
 
-
+app.use(express.urlencoded({ extended: false}))
 
 // Usando o roteador principal
 app.use(mainRouter);
