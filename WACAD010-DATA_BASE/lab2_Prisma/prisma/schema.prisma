@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  id_cliente      Int        @id @default(autoincrement())
+  nome_completo   String
+  cpf             String     @unique
+  celular         String
+  email           String
+  data_nascimento DateTime
+  enderecos       Endereco[]
+  compras         Compra[]
+}
+
+model Endereco {
+  id_endereco     Int      @id @default(autoincrement())
+  id_cliente      Int
+  logradouro      String?
+  numero          String?
+  complemento     String?
+  bairro          String?
+  cidade          String?
+  estado          String?
+  cep             String?
+
+  cliente         Cliente  @relation(fields: [id_cliente], references: [id_cliente])
+  compras         Compra[]
+
+  @@map("ENDERECO")
+}
+
+model Categoria {
+  id_categoria Int           @id @default(autoincrement())
+  nome         String
+  subcategorias Subcategoria[]
+}
+
+model Subcategoria {
+  id_subcategoria Int        @id @default(autoincrement())
+  nome           String
+  id_categoria   Int
+  categoria      Categoria   @relation(fields: [id_categoria], references: [id_categoria])
+  produtos       Produto[]
+}
+
+model Produto {
+  id_produto           Int           @id @default(autoincrement())
+  modelo               String
+  fabricante           String
+  preco_base           Decimal
+  quantidade_disponivel Int
+  id_subcategoria      Int
+  subcategoria         Subcategoria @relation(fields: [id_subcategoria], references: [id_subcategoria])
+  numerosSerie         NumeroSerie[]
+  itensCompra          ItemCompra[]
+}
+
+model NumeroSerie {
+  id_serie     Int     @id @default(autoincrement())
+  numero_serie String
+  id_produto   Int
+  produto      Produto @relation(fields: [id_produto], references: [id_produto])
+}
+
+model Compra {
+  id_compra          Int         @id @default(autoincrement())
+  id_cliente         Int
+  data_hora          DateTime
+  desconto_aplicado  Decimal?
+  forma_pagamento    String
+  total              Decimal
+  id_endereco_envio  Int
+
+  cliente            Cliente     @relation(fields: [id_cliente], references: [id_cliente])
+  endereco_envio     Endereco    @relation(fields: [id_endereco_envio], references: [id_endereco])
+  itens_compra       ItemCompra[]
+}
+
+model ItemCompra {
+  id_compra     Int
+  id_produto    Int
+  quantidade    Int
+  preco_unitario Decimal
+
+  compra        Compra  @relation(fields: [id_compra], references: [id_compra])
+  produto       Produto @relation(fields: [id_produto], references: [id_produto])
+
+  @@id([id_compra, id_produto])
+}
