@@ -32,11 +32,3 @@ DATABASE_URL="mysql://root:root_secret@db-container:3306/library_db"
 VITE_API_BASE_URL=http://backend:5555
 ```
 
-## Notas Importantes
-
-* **Persistência de Dados**: Os dados do banco de dados e os logs do backend são persistidos em volumes, garantindo que não sejam perdidos quando os contêineres forem desligados.
-* **PHPMyAdmin**: O PHPMyAdmin pode ser acessado para gerenciar o banco de dados MySQL diretamente.
-
----
-
-Esse formato em Markdown deve ser compatível com a maioria dos leitores de **README** e oferece uma estrutura clara e concisa. Se precisar de mais detalhes, estou à disposição!
