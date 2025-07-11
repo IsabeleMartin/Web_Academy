@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  # Serviço do Banco de Dados MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: db-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root_secret
+      MYSQL_DATABASE: library_db
+      MYSQL_USER: admin_user
+      MYSQL_PASSWORD: admin_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db-scripts:/docker-entrypoint-initdb.d 
+    networks:
+      - app_network
+
+  # Serviço do PHPMyAdmin para gerenciar o banco de dados
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: php-admin
+    environment:
+      PMA_HOST: db-container
+      MYSQL_ROOT_PASSWORD: root_secret
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - app_network
+
+  # Serviço do Backend 
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: app-backend
+    environment:
+      DB_HOST: db-container
+      DB_USER: admin_user
+      DB_PASSWORD: admin_pass
+      DB_NAME: library_db
+      SERVER_PORT: 5555
+      LOG_TO_FILE: "true"
+      DATABASE_URL: "mysql://root:root_secret@db-container:3306/library_db"
+    ports:
+      - "5555:5555"
+    volumes:
+      - backend_logs:/app/logs
+    depends_on:
+      - mysql
+    networks:
+      - app_network
+
+  # Serviço do Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: app-frontend
+    environment:
+      VITE_API_BASE_URL: http://backend:5555
+      VITE_ROTA_INFOS_API: http://backend:5555/api/info
+      VITE_ROTA_LIVROS: http://backend:5555/api/books
+    ports:
+      - "3001:80"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+
+volumes:
+  mysql_data:
+  backend_logs:
