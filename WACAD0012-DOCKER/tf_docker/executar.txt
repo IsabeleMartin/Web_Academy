@@ -18,13 +18,13 @@ As variáveis de ambiente para a aplicação estão configuradas em dois arquivo
 
 --- Backend (.env):
 
-ini
+
 DB_HOST=db-container
 DB_USER=admin_user
 DB_PASSWORD=admin_pass
 DB_NAME=library_db
 DATABASE_URL="mysql://root:root_secret@db-container:3306/library_db"
-```
+
 
 --- Frontend (.env):
 
