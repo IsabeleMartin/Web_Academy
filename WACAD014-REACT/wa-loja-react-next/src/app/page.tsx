@@ -1,16 +1,21 @@
-"use client";
+"use client";  // Adicionando a diretiva para indicar que este componente é Client-Side
+
 import ListagemProdutos from "./components/ListagemProdutos/ListagemProdutos";
 import ResumoCarrinho from "./components/ResumoCarrinho/ResumoCarrinho";
 import { useState } from "react";
 import { mockItensCarrinho } from "./mocks/itensCarrinho";
 import { mockProdutos } from "./mocks/produtos";
-
 import { Produto } from "./types/produto";
 import { ItemCarrinho } from "./types/carrinho";
 
 export default function Produtos() {
-  const [quantidadeTotal, setQuantidadeTotal] = useState<number>(0);
-  const [valorTotal, setValorTotal] = useState<number>(0);
+  const [quantidadeTotal, setQuantidadeTotal] = useState<number>(
+    mockItensCarrinho.reduce((total, item) => total + item.quantidade, 0)
+  );
+  const [valorTotal, setValorTotal] = useState<number>(
+    mockItensCarrinho.reduce((total, item) => total + item.preco * item.quantidade, 0)
+  );
+  const [listaCarrinho, setItensCarrinho] = useState<ItemCarrinho[]>(mockItensCarrinho);
 
   // Função para adicionar um produto ao carrinho
   const adicionarAoCarrinho = (produto: Produto) => {
@@ -18,18 +23,32 @@ export default function Produtos() {
     setQuantidadeTotal((prevQuantidade) => prevQuantidade + 1);
 
     // Atualizando o valor total da compra com o preço do produto
-    setValorTotal((prevValor) => prevValor + produto.preco * 1); // Multiplicando por 1, pois estamos adicionando 1 unidade do produto
+    setValorTotal((prevValor) => prevValor + produto.preco);
 
-    // Criando um novo item para o carrinho
-    const newItemCarrinho: ItemCarrinho = {
-      id: produto.id,
-      nome: produto.nome,
-      preco: produto.preco,
-      quantidade: 1, // Quantidade inicial do produto ao ser adicionado
-    };
+    // Verificando se o produto já existe no carrinho
+    const produtoExistente = listaCarrinho.find(item => item.id === produto.id);
 
-    // Adicionando o item ao carrinho (mockItensCarrinho)
-    mockItensCarrinho.push(newItemCarrinho);
+    if (produtoExistente) {
+      // Se o produto já existe, aumentamos sua quantidade
+      setItensCarrinho((prevItens) =>
+        prevItens.map((item) =>
+          item.id === produto.id
+            ? { ...item, quantidade: item.quantidade + 1 }  // Aumenta a quantidade
+            : item  // Mantém os outros itens inalterados
+        )
+      );
+    } else {
+      // Se o produto não existe, criamos um novo item
+      const newItemCarrinho: ItemCarrinho = {
+        id: produto.id,
+        nome: produto.nome,
+        preco: produto.preco,
+        quantidade: 1, // Quantidade inicial do produto
+      };
+
+      // Atualizamos o estado de itens do carrinho, adicionando o novo item
+      setItensCarrinho((prevItens) => [...prevItens, newItemCarrinho]);
+    }
   };
 
   return (

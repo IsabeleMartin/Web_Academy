@@ -1,6 +1,12 @@
-import { mockItensCarrinho } from "@/app/mocks/itensCarrinho"
+import { ItemCarrinho } from "../../types/carrinho";
 import { TItemCarrinho } from "../TItemCarrinho/TItemCarrinho"
-export default function ListagemCarrinho() {
+
+interface ListagemCarrinhoProps {
+  itensCarrinho: ItemCarrinho[];
+  removerItemDoCarrinho: (id: string) => void;
+}
+
+export default function ListagemCarrinho({itensCarrinho, removerItemDoCarrinho}: ListagemCarrinhoProps) {
    
     return (
         <div className="container p-5">
@@ -21,10 +27,11 @@ export default function ListagemCarrinho() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {mockItensCarrinho.map((item) => (
+                                {itensCarrinho.map((item) => (
                                     <TItemCarrinho 
                                         key={item.id}
                                         item={item}
+                                        removerItemDoCarrinho={removerItemDoCarrinho}
                                     />
                                 ))}
                             </tbody>
