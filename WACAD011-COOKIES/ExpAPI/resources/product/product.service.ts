@@ -22,16 +22,48 @@ export async function createProduct(product: ProdCreateDto): Promise<Product | n
 
 // Além das funções mostradas, o serviço de products precisa ter funções como:
 export async function productAlreadyExists(name2find: string): Promise<boolean> {
-    const produto = await prisma.product.findMany({where:{ name : name2find}});
-    if(produto.length > 0){
-        console.log(produto);
-        return true }
-    else{
-        console.log("not exist");
-        return false
+    try {
+        const produto = await prisma.product.findMany({ where: { name: name2find } });
+        if (produto.length > 0) {
+            console.log(produto);
+            return true
+        }
+        else {
+            console.log(false);
+            return false
+        }
+    } catch (error) {
+        console.log("Erro ao verificar se o produto existe:", error);
+        return false; // Em caso de erro, assume-se que o produto não existe
     }
 }
-//const getProduct = async (id: string): Promise<Product>
-//const updateProduct = async (id: string, product: ProductCreateDto):
-//Promise<[affectedCount: number]>
-//const removeProduct = async (id: string): Promise<number>
+export async function getProduct(id: number): Promise<Product | null> {
+    const produto = await prisma.product.findUnique({ where: { id: id } });
+    return produto;
+}
+export async function updateProduct(id: number, product: ProdCreateDto): Promise<number> {
+    try {
+        const affectedCount = await prisma.product.updateMany({
+            where: { id: id },  // Condição para encontrar o produto pelo id
+            data: product,      // Dados para atualizar
+        });
+
+        return affectedCount.count;  // Retorna o número de registros afetados
+    } catch (error) {
+        console.error("Erro ao atualizar produto:", error);
+        throw new Error("Erro ao atualizar produto");
+    }
+};
+
+export async function removeProduct(id: number): Promise<number>{
+    try {
+        const affectedCount = await prisma.product.deleteMany({
+            where: { id: Number(id) },  // Condição para encontrar o produto pelo id
+        });
+
+        return affectedCount.count;  // Retorna o número de registros afetados
+    } catch (error) {
+        console.error("Erro ao remover produto:", error);
+        throw new Error("Erro ao remover produto");
+    }
+}
