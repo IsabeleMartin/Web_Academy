@@ -37,11 +37,11 @@ export async function productAlreadyExists(name2find: string): Promise<boolean> 
         return false; // Em caso de erro, assume-se que o produto não existe
     }
 }
-export async function getProduct(id: number): Promise<Product | null> {
+export async function getProduct(id: string): Promise<Product | null> {
     const produto = await prisma.product.findUnique({ where: { id: id } });
     return produto;
 }
-export async function updateProduct(id: number, product: ProdCreateDto): Promise<number> {
+export async function updateProduct(id: string, product: ProdCreateDto): Promise<number> {
     try {
         const affectedCount = await prisma.product.updateMany({
             where: { id: id },  // Condição para encontrar o produto pelo id
@@ -55,10 +55,10 @@ export async function updateProduct(id: number, product: ProdCreateDto): Promise
     }
 };
 
-export async function removeProduct(id: number): Promise<number>{
+export async function removeProduct(id: string): Promise<number>{
     try {
         const affectedCount = await prisma.product.deleteMany({
-            where: { id: Number(id) },  // Condição para encontrar o produto pelo id
+            where: { id: String(id) },  // Condição para encontrar o produto pelo id
         });
 
         return affectedCount.count;  // Retorna o número de registros afetados
