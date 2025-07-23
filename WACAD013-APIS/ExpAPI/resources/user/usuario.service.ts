@@ -2,6 +2,7 @@
 // updateUser, findUserByEmail, findUserById e deleteUsuario
 import { PrismaClient, User } from '@prisma/client';
 import { CreateUserDto, UpdateUserDto, UserDto } from './usuario.types';
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient();
 
@@ -12,8 +13,10 @@ export async function getAllUsers(): Promise<UserDto[]> {
 
 export async function createUser(user: CreateUserDto): Promise<UserDto | undefined> {
     try {
-        console.log("entrou");
-        const newuser = await prisma.user.create({ data: user });
+     
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(user.password, salt );
+        const newuser = await prisma.user.create({ data: {...user, password: hash,} });
         console.log(newuser);
         return newuser;
     } catch (err) {
