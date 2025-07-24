@@ -5,11 +5,10 @@ import { User } from '@prisma/client';
 const isAuth = async (
     req: Request,
     res: Response,
-    user: User,
     next: NextFunction
 ) => {
     const uid = req.session.uid;
-    if (uid && (await checkIsAuth(uid, user))) next();
+    if (uid && (await checkIsAuth(uid))) next();
     else res.status(403).json({ msg: 'Não logado' });
 };
 export default isAuth;

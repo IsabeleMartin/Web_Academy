@@ -23,7 +23,8 @@ export const checkIsAdmin = async (idUser: string) => {
     else return false
 }
 
-export const checkIsAuth = async (idUser: string, user: User) => {
-    if (idUser ===  user.id) return true
+export const checkIsAuth = async (idUser: string) => {
+    const user = await prisma.user.findFirst({where: {id: idUser}});
+    if (user) return true
     else false
 }
