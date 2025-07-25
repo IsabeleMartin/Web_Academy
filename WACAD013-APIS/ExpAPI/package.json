@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.ts",
-    "start": "nodemon -e js,json,ts,yaml src/index.ts",
+    "start": "nodemon -e js,json,ts,yaml index.ts",
     "swagger": "ts-node src/swagger.ts"
   },
   "prisma": {

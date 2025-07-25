@@ -1,64 +1,54 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "API da Loja Virtual",
-    "description": "Documentação da API para autenticação e produtos",
+    "title": "API da Loja virtual",
+    "description": "Documentação da API",
     "version": "1.0.0"
   },
   "host": "undefined:undefined",
   "basePath": "/",
-  "tags": [
-    {
-      "name": "Product",
-      "description": "Rotas relacionadas aos produtos"
-    },
-    {
-      "name": "Language",
-      "description": "Rotas relacionadas aos idiomas"
-    },
-    {
-      "name": "Usuario",
-      "description": "Rotas relacionadas aos usuários"
-    },
-    {
-      "name": "Carrinho",
-      "description": "Rotas relacionadas ao carrinho de compras"
-    },
-    {
-      "name": "Auth",
-      "description": "Rotas relacionadas à autenticação"
-    }
-  ],
   "schemes": [
     "http"
   ],
   "paths": {
     "/product/": {
       "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Lista os produtos cadastrados.",
         "description": "",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Produtos listados com sucesso.",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
           }
         }
       },
       "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Adiciona um novo produto na base.",
         "description": "",
         "parameters": [
           {
             "name": "body",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/CreateProductDto"
             }
           }
         ],
         "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Product"
+            },
+            "description": "OK"
+          },
           "201": {
             "description": "Created"
           },
@@ -73,48 +63,75 @@
     },
     "/product/{id}": {
       "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Recupera dados de um produto específico.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do produto"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
           }
         }
       },
       "put": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Atualiza os dados de um produto específico.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do produto"
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Product"
+            },
+            "description": "OK"
           }
         }
       },
       "delete": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Remove um produto específico.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do produto"
           }
         ],
         "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Product"
+            },
+            "description": "OK"
+          },
           "204": {
             "description": "No Content"
           }
@@ -123,34 +140,179 @@
     },
     "/language/change": {
       "get": {
-        "description": "",
+        "tags": [
+          "Language"
+        ],
+        "summary": "Altera a linguagem preferida do usuário.",
+        "description": "Esse endpoint define a linguagem preferida do usuário, armazenando-a em um cookie.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Linguagem preferida do usuário",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "lang": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Linguagem alterada com sucesso.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "lang": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "en"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "400": {
+            "description": "Erro ao definir a linguagem."
           }
         }
       }
     },
     "/usuario/": {
       "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Lista todos os usuários cadastrados.",
         "description": "",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Lista de usuários",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "array"
+                },
+                "items": {
+                  "$ref": "#/definitions/User"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor"
           }
         }
       },
       "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Cria um novo usuário.",
         "description": "",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Dados para criação de um novo usuário",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "example": "any"
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "usuario@example.com"
+                        }
+                      }
+                    },
+                    "password": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "senha123"
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "João Silva"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -158,73 +320,212 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Usuário criado com sucesso.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "409": {
+            "description": "O e-mail já está em uso."
+          },
+          "500": {
+            "description": "Erro interno no servidor"
           }
         }
       }
     },
     "/usuario/{id}": {
       "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Obtem detalhes de um usuário pelo ID.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do usuário",
+            "example": "123"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Detalhes do usuário",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado."
           }
         }
       },
       "put": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Atualiza as informações de um usuário.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do usuário a ser atualizado",
+            "example": "123"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados para atualização do usuário",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "novoemail@example.com"
+                        }
+                      }
+                    },
+                    "password": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "novaSenha123"
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Carlos Oliveira"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "Usuário atualizado com sucesso."
+          },
+          "500": {
+            "description": "Erro interno no servidor"
           }
         }
       },
       "delete": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Remove um usuário pelo ID.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID do usuário a ser removido",
+            "example": "123"
           }
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Usuário removido com sucesso."
+          },
+          "404": {
+            "description": "Usuário não encontrado."
+          },
+          "500": {
+            "description": "Erro interno no servidor"
           }
         }
       }
     },
     "/carrinho/adicionar": {
       "post": {
-        "description": "",
+        "tags": [
+          "Carrinho"
+        ],
+        "summary": "Adiciona um produto ao carrinho.",
+        "description": "Esse endpoint verifica se o produto já está no carrinho. Se estiver, aumenta a quantidade, caso contrário, adiciona o produto ao carrinho.",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Produto a ser adicionado ao carrinho",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "req": {
-                  "example": "any"
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "produtoId": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 123
+                        }
+                      }
+                    },
+                    "quantidade": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 2
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -232,66 +533,171 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Produto adicionado ou quantidade atualizada no carrinho."
+          },
+          "500": {
+            "description": "Erro interno no servidor."
           }
         }
       }
     },
     "/carrinho/finalizar": {
       "put": {
-        "description": "",
+        "tags": [
+          "Carrinho"
+        ],
+        "summary": "Finaliza a compra e cria a transação.",
+        "description": "Esse endpoint cria uma nova compra com os itens do carrinho e a associa ao usuário logado.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Compra finalizada com sucesso."
+          },
+          "400": {
+            "description": "Carrinho vazio ou erro na criação da compra."
+          },
+          "500": {
+            "description": "Erro interno no servidor."
           }
         }
       }
     },
     "/signup": {
       "post": {
-        "description": "",
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Realiza o cadastro de um novo usuário.",
+        "description": "Esse endpoint cria um novo usuário, verificando se o e-mail já está em uso antes de prosseguir com o cadastro.",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Dados necessários para o cadastro de um novo usuário",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "example": "any"
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "usuario@example.com"
+                        }
+                      }
+                    },
+                    "password": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "senha123"
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "João Silva"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
           }
         ],
         "responses": {
+          "200": {
+            "description": "Usuário cadastrado com sucesso.",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
           "201": {
             "description": "Created"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "O email informado já está sendo utilizado."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Erro interno no servidor."
           }
         }
       }
     },
     "/login": {
       "post": {
-        "description": "",
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Realiza o login de um usuário.",
+        "description": "Esse endpoint autentica um usuário com base no email e senha fornecidos.",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Credenciais do usuário para login",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "example": "any"
+                "type": {
+                  "type": "string",
+                  "example": "object"
                 },
-                "password": {
-                  "example": "any"
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "usuario@example.com"
+                        }
+                      }
+                    },
+                    "password": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "senha123"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -299,26 +705,278 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Usuário autenticado com sucesso."
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Email ou senha incorretos."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Erro interno no servidor."
           }
         }
       }
     },
     "/logout": {
       "post": {
-        "description": "",
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Realiza o logout de um usuário.",
+        "description": "Esse endpoint encerra a sessão do usuário e o desloga do sistema.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Usuário deslogado com sucesso."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Erro interno no servidor."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateProductDto": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Modern Soft Sausages"
+                }
+              }
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 2699
+                }
+              }
+            },
+            "stockQuantity": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 9
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "8a2053de-5d92-4c43-97c0-c9b2b0d56703"
+                }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "Modern Soft Sausages"
+                }
+              }
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "number"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 2699
+                }
+              }
+            },
+            "stockQuantity": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 9
+                }
+              }
+            },
+            "createdAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date-time"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "2023-11-07T19:27:15.645Z"
+                }
+              }
+            },
+            "updatedAt": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "example": "date-time"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "2023-11-07T19:27:15.645Z"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "1a2b3c4d"
+                }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "user@example.com"
+                }
+              }
+            },
+            "name": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "John Doe"
+                }
+              }
+            },
+            "userTypeId": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "client"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Language": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "lang": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "en"
+                }
+              }
+            }
           }
         }
       }
