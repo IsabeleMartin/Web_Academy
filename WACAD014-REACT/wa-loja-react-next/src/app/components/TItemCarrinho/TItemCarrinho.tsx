@@ -13,8 +13,8 @@ export function TItemCarrinho({ item, removerItemDoCarrinho }: ItemCarrinhoProps
   ): number => precoUnitario * quantidade;
 
   // Garantir que item.preco seja um número válido
-  const precoFormatado = isNaN(item.preco) ? 0 : item.preco; // Verificação para garantir que seja um número
-
+  const precoFormatado = isNaN(item.preco) ? 0 : item.preco; 
+  
   return (
     <tr key={item.id}> {/* Utilizando item.id como chave */}
       <td>{item.nome}</td>

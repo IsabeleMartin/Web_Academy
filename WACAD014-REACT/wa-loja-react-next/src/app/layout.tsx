@@ -21,7 +21,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <BootstrapClient />
-        <ReactQueryClientProvider/>
+        </ReactQueryClientProvider>
       </body>
     </html>
   );

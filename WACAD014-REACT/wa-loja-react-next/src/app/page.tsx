@@ -4,9 +4,9 @@ import ListagemProdutos from "./components/ListagemProdutos/ListagemProdutos";
 import ResumoCarrinho from "./components/ResumoCarrinho/ResumoCarrinho";
 import { useState } from "react";
 import { mockItensCarrinho } from "./mocks/itensCarrinho";
-import { mockProdutos } from "./mocks/produtos";
 import { Produto } from "./types/produto";
 import { ItemCarrinho } from "./types/carrinho";
+import { mockProdutos } from "./mocks/produtos";
 
 export default function Produtos() {
   const [quantidadeTotal, setQuantidadeTotal] = useState<number>(
@@ -23,7 +23,7 @@ export default function Produtos() {
     setQuantidadeTotal((prevQuantidade) => prevQuantidade + 1);
 
     // Atualizando o valor total da compra com o preço do produto
-    setValorTotal((prevValor) => prevValor + produto.preco);
+    setValorTotal((prevValor) => prevValor + Number(produto.preco));
 
     // Verificando se o produto já existe no carrinho
     const produtoExistente = listaCarrinho.find(item => item.id === produto.id);
@@ -56,7 +56,7 @@ export default function Produtos() {
       {/* Passando os estados para o ResumoCarrinho */}
       <ResumoCarrinho valorTotal={valorTotal} quantidadeTotal={quantidadeTotal} />
       {/* Passando a função e os produtos para o ListagemProdutos */}
-      <ListagemProdutos produtos={mockProdutos} adicionarAoCarrinho={adicionarAoCarrinho} />
+      <ListagemProdutos products={mockProdutos} adicionarAoCarrinho={adicionarAoCarrinho} />
     </>
   );
 }

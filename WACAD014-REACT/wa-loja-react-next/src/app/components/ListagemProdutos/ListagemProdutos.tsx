@@ -1,4 +1,3 @@
-import { useListaProdutos } from "@/app/services/useListaProductos";
 import CardProduto from "../CardProduto/CardProduto";
 import { Produto } from "@/app/types/produto";
 
@@ -9,11 +8,7 @@ interface ListagemProdutosProps {
 }
 
 export default function ListagemProdutos({ products, adicionarAoCarrinho }: ListagemProdutosProps) {
-  const { produtos, isPending, isError } = useListaProdutos();
   
-  if (isPending) return <h5>Carregando...</h5>
-
-  if (isError) return <h5>Ocorreu um erro ao carregar os produtos.</h5>
 
   if (!products) return <h5>Não há produtos disponíveis no momento.</h5>
 
