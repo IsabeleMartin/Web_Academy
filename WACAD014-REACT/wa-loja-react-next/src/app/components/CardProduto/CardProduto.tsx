@@ -1,5 +1,12 @@
+
 import { Produto } from "../../types/produto";
 import Image from "next/image";
+import { useAddFavorito } from "@/app/services/useAddFavorito";
+import {useRouter} from "next/navigation"
+import { toast } from "react-toastify";
+
+
+
 
 interface ICardProdutoProps {
   produto: Produto;
@@ -7,6 +14,21 @@ interface ICardProdutoProps {
 }
 
 export default function CardProduto({ produto, adicionarAoCarrinho }: ICardProdutoProps) {
+ 
+  const {isPending, addFavorito} = useAddFavorito(
+    () => toast.success("Produto favoritado com sucesso"),
+    () => toast.error("Algo deu errado")
+  );
+   
+   const router = useRouter(); // Colocando o useRouter dentro do componente
+
+  // Função que lida com a navegação
+  const verDetalhesProduto = (nomeProduto: string) => {
+    if(nomeProduto)router.push(`/produto/${nomeProduto}`);
+  };
+
+
+
   return (
     <div className="col">
       <div className="card shadow-sm h-100">
@@ -16,6 +38,7 @@ export default function CardProduto({ produto, adicionarAoCarrinho }: ICardProdu
           alt={produto.fotos[0].titulo}
           width={300}
           height={320}
+          onClick={()=> verDetalhesProduto(produto.nome)}
         />
 
         <div className="card-body bg-light">
@@ -27,6 +50,14 @@ export default function CardProduto({ produto, adicionarAoCarrinho }: ICardProdu
             onClick={() => adicionarAoCarrinho(produto)}
           >
             Adicionar no carrinho
+          </button>
+
+          <button
+          className="btn btn-light d-block w-100 mt-2"
+          type="button"
+          onClick={() => addFavorito(produto)}
+          >
+            {isPending ? "Favoritando..." : "Favoritar"}
           </button>
         </div>
       </div>

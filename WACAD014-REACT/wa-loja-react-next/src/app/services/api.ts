@@ -1,7 +1,13 @@
 import axios from "axios"
 
  const produtosApi = axios.create({
-    baseURL: "https://renekapi.origamid.dev/json/api",
+    baseURL: "https://ranekapi.origamid.dev/json/api",
 });
 
-export default produtosApi
+const apiFavoritos = axios.create({
+    baseURL: "https://favoritos-json-server-pi.vercel.app/"
+})
+
+
+
+export  {produtosApi, apiFavoritos}

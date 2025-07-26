@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Navbar from "./components/Navbar/Navbar"
 import "bootstrap/dist/css/bootstrap.min.css"
 import BootstrapClient from "./BootstrapClient";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { ReactQueryClientProvider } from "./services/ReactQueryClient";
 
 export const metadata: Metadata = {
@@ -20,8 +22,9 @@ export default function RootLayout({
         <ReactQueryClientProvider>
           <Navbar />
           {children}
+          <ToastContainer/>
           <BootstrapClient />
-        <ReactQueryClientProvider/>
+        </ReactQueryClientProvider>
       </body>
     </html>
   );

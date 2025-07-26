@@ -4,9 +4,9 @@ import ListagemProdutos from "./components/ListagemProdutos/ListagemProdutos";
 import ResumoCarrinho from "./components/ResumoCarrinho/ResumoCarrinho";
 import { useState } from "react";
 import { mockItensCarrinho } from "./mocks/itensCarrinho";
-import { mockProdutos } from "./mocks/produtos";
 import { Produto } from "./types/produto";
 import { ItemCarrinho } from "./types/carrinho";
+
 
 export default function Produtos() {
   const [quantidadeTotal, setQuantidadeTotal] = useState<number>(
@@ -51,12 +51,13 @@ export default function Produtos() {
     }
   };
 
+
   return (
     <>
       {/* Passando os estados para o ResumoCarrinho */}
       <ResumoCarrinho valorTotal={valorTotal} quantidadeTotal={quantidadeTotal} />
       {/* Passando a função e os produtos para o ListagemProdutos */}
-      <ListagemProdutos produtos={mockProdutos} adicionarAoCarrinho={adicionarAoCarrinho} />
+      <ListagemProdutos adicionarAoCarrinho={adicionarAoCarrinho} />
     </>
   );
 }
