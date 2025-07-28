@@ -9,7 +9,7 @@ interface ResumoCarrinhoProps {
 
 export default function ResumoFavoritos() {
 
-  const {favoritos, setFavoritos} = useContext(FavoritosContext);
+  const {favoritos} = useContext(FavoritosContext);
   
 
   const ultimosFavoritos = favoritos.slice(-3).reverse();
