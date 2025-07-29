@@ -32,7 +32,7 @@ function verificarDisponibilidadeEstoque(tipoProduto, quantidade) {
 
   if(estoque.hasOwnProperty(tipoProduto)){
     const estoqueDisponivel = estoque[tipoProduto];
-    if (estoqueDisponivel === 0) return false;
+    if (estoqueDisponivel === 0 || estoqueDisponivel <= quantidade) return false;
     else return true;
   }else return false
 }

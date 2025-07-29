@@ -8,6 +8,13 @@ describe("verificarDisponibilidadeEstoque()", () => {
         expect(result).toBe(true);
     });
 
+    it("deve retornar false quando a quantidade desejada do tipo de produto especificado for maior do que o disponível no estoque", () => {
+        const tipoProduto = "laptop";
+        const quantidade = 29;
+        const result = verificarDisponibilidadeEstoque(tipoProduto, quantidade);
+        expect(result). toBe(false);
+    });
+
     it("deve retornar false quando a quantidade desejada do produto não estiver disponível do estoque", () => {
         const tipoProduto = "livro";
         const quantidade = 3;
