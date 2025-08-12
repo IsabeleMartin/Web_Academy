@@ -1,0 +1,8 @@
+name: Simple Local
+on: push
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diga oi 
+        run: echo "Hello World!"
